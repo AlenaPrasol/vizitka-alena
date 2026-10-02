@@ -1,0 +1,620 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Алёна Прасолова — визитка</title>
+<meta name="description" content="Автоматизирую и делаю всё, что вы можете вообразить. ИИ-помощники, сайты и боты — Алёна Прасолова, Айхал.">
+<meta name="theme-color" content="#05070d">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Алёна Прасолова — визитка">
+<meta property="og:description" content="Автоматизирую и делаю всё, что вы можете вообразить. ИИ-помощники, сайты и боты.">
+<meta property="og:url" content="https://alena-prasolova.vercel.app">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%2305070d'/%3E%3Ccircle cx='16' cy='16' r='7' fill='%2345e6bd'/%3E%3C/svg%3E">
+<style>
+  *{margin:0;padding:0;box-sizing:border-box}
+  html,body{min-height:100%}
+  body{-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility;background:#05070d}
+  img{max-width:100%}
+</style>
+</head>
+<body>
+
+<style>
+  :root{
+    --sans: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+    --mono: ui-monospace, "SF Mono", "SFMono-Regular", Menlo, Consolas, "Liberation Mono", monospace;
+
+    /* Polar night (dark) — the committed default world */
+    --bg:      #05070d;
+    --bg-2:    #0a0f1b;
+    --text:    #eef4f8;
+    --muted:   #8a99ab;
+    --faint:   #5c6b7d;
+    --line:    rgba(150,185,220,0.14);
+    --panel:   rgba(146,180,220,0.045);
+    --panel-2: rgba(146,180,220,0.08);
+    --a1:      #45e6bd;   /* aurora mint-teal */
+    --a2:      #7e83ff;   /* aurora violet */
+    --ember:   #f3b45f;   /* single warm signal */
+    --ember-ink:#1b1206;
+    --card-bg: linear-gradient(160deg, rgba(18,26,42,0.78), rgba(8,12,22,0.72));
+    --card-brd: rgba(150,190,225,0.16);
+    --shadow:  0 40px 120px -40px rgba(0,0,0,0.85), 0 2px 0 rgba(255,255,255,0.04) inset;
+    --dot:     var(--a1);
+  }
+
+  /* Светлая тема убрана — «полярная ночь» теперь единственный, зафиксированный вид. */
+
+  /* Explicit toggle wins in both directions */
+  :root[data-theme="dark"]{
+    --bg:#05070d; --bg-2:#0a0f1b; --text:#eef4f8; --muted:#8a99ab; --faint:#5c6b7d;
+    --line:rgba(150,185,220,0.14); --panel:rgba(146,180,220,0.045); --panel-2:rgba(146,180,220,0.08);
+    --a1:#45e6bd; --a2:#7e83ff; --ember:#f3b45f; --ember-ink:#1b1206;
+    --card-bg:linear-gradient(160deg, rgba(18,26,42,0.78), rgba(8,12,22,0.72));
+    --card-brd:rgba(150,190,225,0.16);
+    --shadow:0 40px 120px -40px rgba(0,0,0,0.85), 0 2px 0 rgba(255,255,255,0.04) inset;
+  }
+  /* data-theme="light" намеренно не задан — карточка остаётся тёмной, даже если у зрителя светлая тема. */
+
+  *{ box-sizing:border-box; }
+
+  .stage{
+    position:relative;
+    min-height:100dvh;
+    display:grid;
+    place-items:center;
+    padding:clamp(18px,4vw,48px);
+    background:
+      radial-gradient(120% 80% at 50% -10%, var(--bg-2), var(--bg) 60%);
+    color:var(--text);
+    font-family:var(--sans);
+    overflow:hidden;
+    perspective:1200px;
+  }
+  /* vignette for depth */
+  .stage::after{
+    content:"";
+    position:fixed; inset:0; pointer-events:none;
+    background:radial-gradient(130% 100% at 50% 40%, transparent 55%, rgba(0,0,0,0.35));
+    mix-blend-mode:multiply;
+    z-index:2;
+  }
+  /* .stage::after — единственная тёмная виньетка (без светлого варианта). */
+
+  #aurora{
+    position:fixed; inset:0;
+    width:100%; height:100%;
+    z-index:0;
+    display:block;
+  }
+
+  .card{
+    position:relative;
+    z-index:3;
+    width:min(440px, 100%);
+    padding:clamp(26px,4.4vw,40px);
+    border-radius:26px;
+    background:var(--card-bg);
+    border:1px solid var(--card-brd);
+    box-shadow:var(--shadow);
+    backdrop-filter:blur(18px) saturate(1.15);
+    -webkit-backdrop-filter:blur(18px) saturate(1.15);
+    transform-style:preserve-3d;
+    will-change:transform;
+    overflow:hidden;
+  }
+  /* gradient hairline on top edge */
+  .card::before{
+    content:"";
+    position:absolute; inset:0;
+    border-radius:inherit;
+    padding:1px;
+    background:linear-gradient(140deg, color-mix(in srgb, var(--a1) 55%, transparent), transparent 40%, color-mix(in srgb, var(--a2) 50%, transparent));
+    -webkit-mask:linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+    -webkit-mask-composite:xor; mask-composite:exclude;
+    pointer-events:none;
+    opacity:.9;
+  }
+  /* moving sheen tied to pointer */
+  .sheen{
+    position:absolute; inset:0; border-radius:inherit; pointer-events:none;
+    background:radial-gradient(280px 280px at var(--mx,30%) var(--my,0%), color-mix(in srgb, var(--a1) 22%, transparent), transparent 60%);
+    opacity:.5; mix-blend-mode:screen; transition:opacity .4s ease;
+  }
+  /* sheen всегда screen-blend (тёмная тема). */
+
+  .content{ position:relative; z-index:1; transform:translateZ(40px); }
+
+  .eyebrow{
+    font-family:var(--mono);
+    font-size:.66rem;
+    letter-spacing:.24em;
+    text-transform:uppercase;
+    color:var(--muted);
+    display:flex; align-items:center; gap:.6em;
+    white-space:nowrap;
+  }
+  .eyebrow .glyph{ color:var(--a1); font-size:.8rem; }
+
+  .status{
+    margin-top:22px;
+    display:inline-flex; align-items:center; gap:.55em;
+    font-family:var(--mono); font-size:.7rem; letter-spacing:.12em; text-transform:uppercase;
+    color:var(--muted);
+    padding:.42em .8em;
+    border:1px solid var(--line); border-radius:999px;
+    background:var(--panel);
+  }
+  .pulse{ position:relative; width:8px; height:8px; border-radius:50%; background:var(--dot); }
+  .pulse::after{
+    content:""; position:absolute; inset:0; border-radius:50%; background:var(--dot);
+    animation:ping 2.4s ease-out infinite;
+  }
+  @keyframes ping{ 0%{ transform:scale(1); opacity:.7 } 70%,100%{ transform:scale(3.4); opacity:0 } }
+
+  .name{
+    margin:20px 0 0;
+    font-size:clamp(2.5rem, 9vw, 3.5rem);
+    line-height:.98;
+    font-weight:680;
+    letter-spacing:-.035em;
+    text-wrap:balance;
+    background:linear-gradient(180deg, var(--text), color-mix(in srgb, var(--text) 62%, var(--a1)));
+    -webkit-background-clip:text; background-clip:text; color:transparent;
+  }
+  .statement{
+    margin:18px 0 0;
+    max-width:30ch;
+    font-size:clamp(1.18rem, 4.6vw, 1.5rem);
+    line-height:1.28;
+    font-weight:600;
+    letter-spacing:-.01em;
+    color:var(--text);
+    text-wrap:balance;
+  }
+  .statement .hl{
+    background:linear-gradient(115deg, var(--a1), var(--a2));
+    -webkit-background-clip:text; background-clip:text; color:transparent;
+  }
+
+  .tagline{
+    margin:12px 0 0;
+    max-width:34ch;
+    font-size:clamp(.96rem,3.2vw,1.06rem);
+    line-height:1.5;
+    color:var(--muted);
+  }
+  .tagline b{ color:var(--text); font-weight:600; }
+
+  .works{ margin-top:24px; }
+  .works-h{
+    font-family:var(--mono); font-size:.62rem; letter-spacing:.2em; text-transform:uppercase;
+    color:var(--faint); margin-bottom:10px;
+  }
+  .works-h2{ margin-top:18px; }
+  .works-grid{ display:grid; grid-template-columns:1fr 1fr; gap:8px; }
+  .wbtn{
+    display:block; text-decoration:none; color:var(--text);
+    padding:.66em .76em; border:1px solid var(--line); border-radius:12px;
+    background:var(--panel);
+    transition:transform .18s ease, background .2s ease, border-color .2s ease, box-shadow .25s ease;
+  }
+  .wbtn .wn{ display:flex; align-items:center; gap:.35em; font-weight:600; font-size:.86rem; letter-spacing:-.01em; }
+  .wbtn .ext{ color:var(--a1); font-size:.8em; }
+  .wbtn .wd{ display:block; margin-top:3px; font-family:var(--mono); font-size:.58rem; letter-spacing:.02em; color:var(--faint); }
+  .wbtn.wide{ grid-column:1 / -1; }
+  .wbtn:hover{ transform:translateY(-2px); background:var(--panel-2); border-color:color-mix(in srgb, var(--a2) 45%, transparent); box-shadow:0 12px 28px -18px color-mix(in srgb, var(--a2) 60%, transparent); }
+  .wbtn:focus-visible{ outline:2px solid var(--a1); outline-offset:3px; }
+  @media (max-width:360px){ .works-grid{ grid-template-columns:1fr; } }
+
+  .chips{
+    list-style:none; margin:22px 0 0; padding:0;
+    display:flex; flex-wrap:wrap; gap:8px;
+  }
+  .chips li{
+    font-family:var(--mono);
+    font-size:.7rem; letter-spacing:.02em;
+    color:var(--text);
+    padding:.5em .7em;
+    border:1px solid var(--line); border-radius:9px;
+    background:var(--panel);
+  }
+  .chips li::before{ content:"◆ "; color:var(--a2); font-size:.62em; vertical-align:middle; }
+
+  .rule{ height:1px; background:var(--line); margin:26px 0 22px; border:0; }
+
+  .contacts{ display:grid; gap:10px; }
+  .btn{
+    display:flex; align-items:center; gap:.75em;
+    text-decoration:none; color:var(--text);
+    font-size:.95rem; font-weight:500;
+    padding:.85em 1em;
+    border-radius:14px;
+    border:1px solid var(--line);
+    background:var(--panel);
+    transition:transform .18s ease, background .2s ease, border-color .2s ease, box-shadow .25s ease;
+  }
+  .btn svg{ width:19px; height:19px; flex:0 0 auto; }
+  .btn .lab{ display:flex; flex-direction:column; line-height:1.15; }
+  .btn .lab small{ font-family:var(--mono); font-size:.64rem; letter-spacing:.06em; color:var(--faint); text-transform:uppercase; }
+  .btn .arw{ margin-left:auto; color:var(--faint); transition:transform .2s ease, color .2s ease; }
+  .btn:hover{ transform:translateY(-2px); background:var(--panel-2); }
+  .btn:hover .arw{ transform:translateX(3px); color:var(--text); }
+  .btn:focus-visible{ outline:2px solid var(--a1); outline-offset:3px; }
+
+  .btn-tg:hover{ border-color:color-mix(in srgb, var(--a1) 60%, transparent); box-shadow:0 12px 30px -16px color-mix(in srgb, var(--a1) 70%, transparent); }
+  .btn-tg svg{ color:var(--a1); }
+  .btn-mail:hover{ border-color:color-mix(in srgb, var(--a2) 60%, transparent); box-shadow:0 12px 30px -16px color-mix(in srgb, var(--a2) 70%, transparent); }
+  .btn-mail svg{ color:var(--a2); }
+  .btn-tel:hover{ border-color:color-mix(in srgb, var(--a2) 55%, transparent); box-shadow:0 12px 30px -16px color-mix(in srgb, var(--a2) 65%, transparent); }
+  .btn-tel svg{ color:color-mix(in srgb, var(--a1) 45%, var(--a2)); }
+  .btn-digest{
+    border-color:color-mix(in srgb, var(--ember) 48%, transparent);
+    background:linear-gradient(150deg, color-mix(in srgb, var(--ember) 18%, transparent), rgba(126,131,255,.08));
+  }
+  .btn-digest svg{ color:var(--ember); }
+  .btn-digest:hover{
+    border-color:color-mix(in srgb, var(--ember) 76%, transparent);
+    box-shadow:0 14px 34px -16px color-mix(in srgb, var(--ember) 82%, transparent);
+  }
+  #digest{ scroll-margin-top:24px; }
+
+  .btn-save{
+    background:linear-gradient(180deg, color-mix(in srgb, var(--ember) 92%, white), var(--ember));
+    color:var(--ember-ink);
+    border-color:transparent;
+    font-weight:650;
+    justify-content:center;
+    margin-top:2px;
+  }
+  .btn-save small{ color:color-mix(in srgb, var(--ember-ink) 70%, transparent); }
+  .btn-save svg{ color:var(--ember-ink); }
+  .btn-save:hover{ transform:translateY(-2px); box-shadow:0 16px 34px -14px color-mix(in srgb, var(--ember) 80%, transparent); }
+
+  .tg-tag{ font-family:var(--mono); font-size:.64rem; letter-spacing:.06em; color:var(--faint); text-transform:uppercase; }
+
+  .foot{
+    margin-top:24px;
+    display:flex; align-items:center; justify-content:space-between; gap:12px;
+    font-family:var(--mono); font-size:.62rem; letter-spacing:.1em; text-transform:uppercase;
+    color:var(--faint);
+  }
+  .foot .dia{ color:var(--a1); }
+
+  /* entrance */
+  .rise{ opacity:0; transform:translateY(14px); animation:rise .8s cubic-bezier(.2,.7,.2,1) forwards; }
+  .rise.d1{ animation-delay:.05s } .rise.d2{ animation-delay:.14s } .rise.d3{ animation-delay:.23s }
+  .rise.d4{ animation-delay:.32s } .rise.d5{ animation-delay:.41s } .rise.d6{ animation-delay:.5s }
+  @keyframes rise{ to{ opacity:1; transform:none } }
+
+  @media (prefers-reduced-motion: reduce){
+    .rise{ animation:none; opacity:1; transform:none; }
+    .pulse::after{ animation:none; }
+    .card{ transform:none !important; }
+  }
+</style>
+
+<div class="stage" id="stage">
+  <canvas id="aurora" aria-hidden="true"></canvas>
+
+  <main class="card" id="card" aria-label="Визитка Алёны Прасол">
+    <div class="sheen" id="sheen"></div>
+    <div class="content">
+
+      <div class="eyebrow rise d1">
+        <span class="glyph">◈</span>
+        <span>Айхал · Саха (Якутия) · 65.9°N&nbsp;111.5°E</span>
+      </div>
+
+      <span class="status rise d1"><span class="pulse"></span>Открыта к&nbsp;проектам</span>
+
+      <h1 class="name rise d2">Алёна<br>Прасолова</h1>
+
+      <p class="statement rise d3">Автоматизирую и делаю&nbsp;<span class="hl">всё, что вы можете вообразить.</span></p>
+
+      <p class="tagline rise d3">ИИ-помощники, сайты и боты — для дела, храма и семьи.</p>
+
+      <ul class="chips rise d4">
+        <li>ИИ-ассистенты</li>
+        <li>Боты&nbsp;и&nbsp;автоматизация</li>
+        <li>Реставрация фото</li>
+        <li>Продуктовые платформы</li>
+      </ul>
+
+      <p class="tagline rise d4" style="max-width:36ch">
+        ИИ-агент под ключ — <a href="https://dental-ai-assistant-vsl.vercel.app" target="_blank" rel="noopener" style="color:var(--text);font-weight:600;text-decoration:none;border-bottom:1px solid rgba(69,230,189,.45)">от 50&nbsp;000&nbsp;₽</a>,
+        сопровождение от 10&nbsp;000&nbsp;₽ в месяц.<br>
+        Для храмов и приходов — <a href="https://alenaprasol.github.io/masterskaya-svod/vizitka/" target="_blank" rel="noopener"
+        style="color:var(--a1);text-decoration:none;border-bottom:1px solid rgba(69,230,189,.4)">отдельная страница, свои цены</a>.
+      </p>
+
+      <section class="works rise d5" aria-label="Работы">
+                <div class="works-h">Храмам и приходам <span style="opacity:.6;font-weight:400">· от 3 000 ₽ · сайт, сбор, записки</span></div>
+        <div class="works-grid">
+          <a class="wbtn" href="https://hram-elhovka.ru" target="_blank" rel="noopener">
+            <span class="wn">Храм в Елховке <span class="ext">↗</span></span>
+            <span class="wd">сбор средств · счётчик и отчёты</span>
+          </a>
+          <a class="wbtn" id="digital-parish" href="https://khram-aikhal.github.io" target="_blank" rel="noopener">
+            <span class="wn">Записки онлайн <span class="ext">↗</span></span>
+            <span class="wd">о здравии и упокоении · оплата СБП</span>
+          </a>
+          <a class="wbtn" href="https://hram-elhovka.ru/tetrad/" target="_blank" rel="noopener">
+            <span class="wn">Библия за год <span class="ext">↗</span></span>
+            <span class="wd">учебная тетрадь для группы</span>
+          </a>
+          <a class="wbtn" href="https://svetopis.art" target="_blank" rel="noopener">
+            <span class="wn">Светопись <span class="ext">↗</span></span>
+            <span class="wd">церковные фотографы России</span>
+          </a>
+          <a class="wbtn wide" href="https://pravoslav.store" target="_blank" rel="noopener">
+            <span class="wn">Открытки <span class="ext">↗</span></span>
+            <span class="wd">православные открытки и расписания</span>
+          </a>
+        </div>
+
+        <div class="works-h works-h2">Медицине и клиникам <span style="opacity:.6;font-weight:400">· каталоги, помощники, предложения</span></div>
+        <div class="works-grid">
+          <a class="wbtn" href="https://kwork-3208201-clinic-guide.vercel.app" target="_blank" rel="noopener">
+            <span class="wn">RegenGuide <span class="ext">↗</span></span>
+            <span class="wd">каталог сравнения клиник</span>
+          </a>
+          <a class="wbtn" href="https://dental-ai-assistant-vsl.vercel.app" target="_blank" rel="noopener">
+            <span class="wn">AI для клиники <span class="ext">↗</span></span>
+            <span class="wd">помощник стоматологии</span>
+          </a>
+        </div>
+
+        <div class="works-h works-h2">Делу и услугам <span style="opacity:.6;font-weight:400">· сайты и каталоги · агент под ключ от 50 000 ₽</span></div>
+        <div class="works-grid">
+          <a class="wbtn" href="https://balans-aykhal.netlify.app" target="_blank" rel="noopener">
+            <span class="wn">Баланс <span class="ext">↗</span></span>
+            <span class="wd">салон красоты · Айхал</span>
+          </a>
+          <a class="wbtn" href="https://kwork-3207252-miniapp.vercel.app" target="_blank" rel="noopener">
+            <span class="wn">Mini App для кафе <span class="ext">↗</span></span>
+            <span class="wd">меню и доставка</span>
+          </a>
+          <a class="wbtn" href="https://kwork-3208237-telegram-store.vercel.app" target="_blank" rel="noopener">
+            <span class="wn">Telegram-магазин <span class="ext">↗</span></span>
+            <span class="wd">каталог техники</span>
+          </a>
+          <a class="wbtn" href="https://apartment-elena-demo.vercel.app" target="_blank" rel="noopener">
+            <span class="wn">Квартира посуточно <span class="ext">↗</span></span>
+            <span class="wd">аренда · Айхал</span>
+          </a>
+          <a class="wbtn" href="https://kitay-bez-paniki.ru" target="_blank" rel="noopener">
+            <span class="wn">Китай без паники <span class="ext">↗</span></span>
+            <span class="wd">путеводитель · маршруты и карты</span>
+          </a>
+          <a class="wbtn wide" href="https://kwork-3208896-portfolio-builder.vercel.app" target="_blank" rel="noopener">
+            <span class="wn">Atelier <span class="ext">↗</span></span>
+            <span class="wd">конструктор портфолио</span>
+          </a>
+        </div>
+
+        <div class="works-h works-h2">Семье и памяти <span style="opacity:.6;font-weight:400">· 500–2 000 ₽ за снимок</span></div>
+        <div class="works-grid">
+          <a class="wbtn" href="https://photo-restavraciya.vercel.app" target="_blank" rel="noopener">
+            <span class="wn">Реставрация фото <span class="ext">↗</span></span>
+            <span class="wd">старые снимки · Telegram-бот</span>
+          </a>
+        </div>
+
+</section>
+
+      <hr class="rule rise d5">
+
+      <div class="contacts rise d6">
+        <a class="btn btn-digest" id="digest" href="https://t.me/alenaprasol" target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M8 4h8l3 3v13H5V4h3z"/><path d="M16 4v4h4"/><path d="M8 12h8M8 15h6M8 18h4"/></svg>
+          <span class="lab"><span>Заказать дайджест — 499 ₽</span><small>ссылки, выжимка и идеи применения</small></span>
+          <span class="arw">→</span>
+        </a>
+
+        <a class="btn btn-tg" id="tg" href="https://t.me/alenaprasol" target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M9.78 18.65l.28-4.23 7.68-6.92c.34-.31-.07-.46-.52-.19L7.74 13.3 3.64 12c-.88-.25-.9-.86.2-1.3l15.97-6.16c.73-.33 1.43.18 1.15 1.3l-2.72 12.81c-.19.91-.74 1.13-1.5.71L12.6 16.3l-1.99 1.93c-.23.23-.42.42-.83.42z"/></svg>
+          <span class="lab"><span>@alenaprasol</span><small>telegram</small></span>
+          <span class="arw">→</span>
+        </a>
+
+        <a class="btn btn-tel" href="tel:+79139213650">
+          <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M6.6 10.8a15 15 0 0 0 6.6 6.6l2.2-2.2a1 1 0 0 1 1-.24 11.4 11.4 0 0 0 3.6.58 1 1 0 0 1 1 1V20a1 1 0 0 1-1 1A17 17 0 0 1 3 4a1 1 0 0 1 1-1h3.5a1 1 0 0 1 1 1 11.4 11.4 0 0 0 .58 3.6 1 1 0 0 1-.24 1z"/></svg>
+          <span class="lab"><span>+7 913 921-36-50</span><small>телефон</small></span>
+          <span class="arw">→</span>
+        </a>
+
+        <a class="btn btn-mail" href="mailto:alenaprasol@tutamail.com">
+          <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M4 6h16a1 1 0 0 1 1 1v10a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V7a1 1 0 0 1 1-1zm.4 2 7.6 4.75L19.6 8H4.4z"/></svg>
+          <span class="lab"><span>alenaprasol@tutamail.com</span><small>почта</small></span>
+          <span class="arw">→</span>
+        </a>
+
+        <a class="btn btn-save" id="save" download="Alena_Prasol.vcf" href="#">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3v11m0 0-4-4m4 4 4-4M5 20h14"/></svg>
+          <span class="lab" style="align-items:center"><span>Сохранить контакт</span></span>
+        </a>
+      </div>
+
+      <div class="foot rise d6">
+        <span><span class="dia">◆</span>&nbsp;Айхал · Якутия</span>
+        <span>© 2026</span>
+      </div>
+
+    </div>
+  </main>
+</div>
+
+<script>
+(function(){
+  "use strict";
+  var reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+  /* ---------- vCard ---------- */
+  var vcf = [
+    "BEGIN:VCARD","VERSION:3.0",
+    "N:Прасолова;Алёна;;;","FN:Алёна Прасолова",
+    "TEL;TYPE=CELL:+79139213650",
+    "EMAIL;TYPE=INTERNET:alenaprasol@tutamail.com",
+    "ADR;TYPE=home:;;;Айхал;Республика Саха (Якутия);;Россия",
+    "NOTE:Строю ИИ-помощников — для дела, храма и семьи.",
+    "END:VCARD"
+  ].join("\n");
+  var save = document.getElementById("save");
+  save.setAttribute("href","data:text/vcard;charset=utf-8," + encodeURIComponent(vcf));
+
+  /* ---------- theme ---------- */
+  function theme(){ return "dark"; }  /* single-theme: всегда полярная ночь */
+  function palette(){
+    return theme() === "light"
+      ? { blend:"multiply", alpha:0.22, bands:["#2fc6a4","#6a82ef","#9a84f2"], star:"rgba(35,70,105,0.55)" }
+      : { blend:"lighter",  alpha:0.15, bands:["#39e3bc","#5f7dff","#8a67ff"], star:"rgba(205,228,255,0.9)" };
+  }
+  var PAL = palette();
+
+  /* ---------- canvas aurora ---------- */
+  var cv = document.getElementById("aurora");
+  var ctx = cv.getContext("2d");
+  var W = 0, H = 0, DPR = 1;
+  function resize(){
+    DPR = Math.min(window.devicePixelRatio || 1, 2);
+    W = cv.clientWidth; H = cv.clientHeight;
+    cv.width = Math.max(1, W * DPR); cv.height = Math.max(1, H * DPR);
+    ctx.setTransform(DPR, 0, 0, DPR, 0, 0);
+  }
+  resize();
+  window.addEventListener("resize", resize);
+
+  /* drifting stardust */
+  var stars = [];
+  var N = 60;
+  for(var i=0;i<N;i++){
+    stars.push({
+      x: Math.random(), y: Math.random(),
+      r: Math.random()*1.5 + 0.3,
+      s: Math.random()*0.02 + 0.004,
+      tw: Math.random()*Math.PI*2,
+      dp: Math.random()*0.6 + 0.2
+    });
+  }
+
+  var px = 0, py = 0, tx = 0, ty = 0;   // pointer parallax (smoothed)
+
+  function ribbon(idx, t){
+    var baseY = H * (0.14 + idx*0.14);
+    var amp   = H * 0.05 * (1 + idx*0.35);
+    var thick = H * (0.26 - idx*0.04);
+    var col   = PAL.bands[idx % PAL.bands.length];
+    var pts = [];
+    var steps = 28;
+    for(var s=0;s<=steps;s++){
+      var x = W * s/steps;
+      var y = baseY
+            + Math.sin(x*0.0055 + t*0.00028*(1+idx*0.35) + idx*2.1) * amp
+            + Math.sin(x*0.013  - t*0.00019 + idx) * amp*0.32
+            + py * H * 0.05 * (idx+1)*0.4;
+      pts.push([x,y]);
+    }
+    ctx.beginPath();
+    ctx.moveTo(pts[0][0], pts[0][1]);
+    for(var a=1;a<pts.length;a++) ctx.lineTo(pts[a][0], pts[a][1]);
+    for(var b=pts.length-1;b>=0;b--) ctx.lineTo(pts[b][0], pts[b][1] + thick);
+    ctx.closePath();
+    var g = ctx.createLinearGradient(0, baseY - amp, 0, baseY + thick);
+    g.addColorStop(0, hexA(col, 0));
+    g.addColorStop(0.5, hexA(col, PAL.alpha));
+    g.addColorStop(1, hexA(col, 0));
+    ctx.fillStyle = g;
+    ctx.fill();
+  }
+  function hexA(hex, a){
+    var n = parseInt(hex.slice(1),16);
+    return "rgba(" + (n>>16&255) + "," + (n>>8&255) + "," + (n&255) + "," + a + ")";
+  }
+
+  function drawStars(t){
+    ctx.globalCompositeOperation = "source-over";
+    for(var i=0;i<stars.length;i++){
+      var st = stars[i];
+      st.y -= st.s/100;
+      if(st.y < -0.02) st.y = 1.02;
+      var tw = 0.4 + 0.6*Math.abs(Math.sin(st.tw + t*0.0012));
+      var x = st.x*W + px*40*st.dp;
+      var y = st.y*H + py*40*st.dp;
+      ctx.beginPath();
+      ctx.arc(x, y, st.r, 0, Math.PI*2);
+      ctx.fillStyle = PAL.star.replace(/[\d.]+\)$/g, (tw*0.9).toFixed(2)+")");
+      ctx.fill();
+    }
+  }
+
+  function frame(t){
+    // smooth pointer
+    px += (tx - px) * 0.06;
+    py += (ty - py) * 0.06;
+    ctx.clearRect(0,0,W,H);
+    ctx.globalCompositeOperation = PAL.blend;
+    ribbon(0, t); ribbon(1, t); ribbon(2, t);
+    drawStars(t);
+    raf = requestAnimationFrame(frame);
+  }
+  var raf = null;
+  if(reduce){
+    // one static, gentle frame
+    ctx.globalCompositeOperation = PAL.blend;
+    ribbon(0, 1200); ribbon(1, 4200); ribbon(2, 8200);
+    drawStars(0);
+  } else {
+    raf = requestAnimationFrame(frame);
+  }
+
+  /* react to theme changes */
+  function onTheme(){
+    PAL = palette();
+    if(reduce){
+      ctx.clearRect(0,0,W,H);
+      ctx.globalCompositeOperation = PAL.blend;
+      ribbon(0,1200); ribbon(1,4200); ribbon(2,8200); drawStars(0);
+    }
+  }
+  new MutationObserver(onTheme).observe(document.documentElement, {attributes:true, attributeFilter:["data-theme"]});
+  window.matchMedia("(prefers-color-scheme: dark)").addEventListener("change", onTheme);
+
+  /* ---------- card tilt + sheen ---------- */
+  var card = document.getElementById("card");
+  var sheen = document.getElementById("sheen");
+  var stage = document.getElementById("stage");
+  var ctilt = {x:0,y:0}, ttilt = {x:0,y:0};
+  var isFine = window.matchMedia("(pointer:fine)").matches;
+
+  function pointer(e){
+    var r = stage.getBoundingClientRect();
+    var nx = (e.clientX - r.left) / r.width  - 0.5;   // -0.5..0.5
+    var ny = (e.clientY - r.top)  / r.height - 0.5;
+    tx = nx*2; ty = ny*2;                              // parallax for canvas
+    if(isFine && !reduce){
+      ttilt.y = nx * 12;    // rotateY
+      ttilt.x = -ny * 12;   // rotateX
+      var cr = card.getBoundingClientRect();
+      sheen.style.setProperty("--mx", ((e.clientX - cr.left)/cr.width*100) + "%");
+      sheen.style.setProperty("--my", ((e.clientY - cr.top)/cr.height*100) + "%");
+    }
+  }
+  window.addEventListener("pointermove", pointer, {passive:true});
+  window.addEventListener("pointerleave", function(){ ttilt.x=0; ttilt.y=0; tx=0; ty=0; });
+
+  if(isFine && !reduce){
+    (function tiltLoop(){
+      ctilt.x += (ttilt.x - ctilt.x) * 0.08;
+      ctilt.y += (ttilt.y - ctilt.y) * 0.08;
+      card.style.transform = "rotateX(" + ctilt.x.toFixed(2) + "deg) rotateY(" + ctilt.y.toFixed(2) + "deg)";
+      requestAnimationFrame(tiltLoop);
+    })();
+  }
+})();
+</script>
+
+</body>
+</html>
