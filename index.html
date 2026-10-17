@@ -3,12 +3,12 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>Алёна Прасолова — визитка</title>
-<meta name="description" content="Автоматизирую и делаю всё, что вы можете вообразить. ИИ-помощники, сайты и боты — Алёна Прасолова, Айхал.">
+<title>Алёна Прасолова · ИИ-помощники и сайты под ключ</title>
+<meta name="description" content="Презентации, памятки, документы и ИИ-помощники под ваше дело. Смета в MAX за пару минут, платите после черновика.">
 <meta name="theme-color" content="#05070d">
 <meta property="og:type" content="website">
-<meta property="og:title" content="Алёна Прасолова — визитка">
-<meta property="og:description" content="Автоматизирую и делаю всё, что вы можете вообразить. ИИ-помощники, сайты и боты.">
+<meta property="og:title" content="Алёна Прасолова">
+<meta property="og:description" content="Презентации, памятки, документы и ИИ-помощники под ваше дело. Смета в MAX за пару минут, платите после черновика.">
 <meta property="og:url" content="https://alena.svetopis.art">
 <meta name="twitter:card" content="summary_large_image">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%2305070d'/%3E%3Ccircle cx='16' cy='16' r='7' fill='%2345e6bd'/%3E%3C/svg%3E">
@@ -194,7 +194,7 @@
     color:var(--faint); margin-bottom:10px;
   }
   .works-h2{ margin-top:18px; }
-  .works-grid{ display:grid; grid-template-columns:1fr 1fr; gap:8px; }
+  .works-grid{ display:grid; grid-template-columns:minmax(0,1fr) minmax(0,1fr); gap:8px; }
   .wbtn{
     display:block; text-decoration:none; color:var(--text);
     padding:.66em .76em; border:1px solid var(--line); border-radius:12px;
@@ -250,17 +250,6 @@
   .btn-mail svg{ color:var(--a2); }
   .btn-tel:hover{ border-color:color-mix(in srgb, var(--a2) 55%, transparent); box-shadow:0 12px 30px -16px color-mix(in srgb, var(--a2) 65%, transparent); }
   .btn-tel svg{ color:color-mix(in srgb, var(--a1) 45%, var(--a2)); }
-  .btn-digest{
-    border-color:color-mix(in srgb, var(--ember) 48%, transparent);
-    background:linear-gradient(150deg, color-mix(in srgb, var(--ember) 18%, transparent), rgba(126,131,255,.08));
-  }
-  .btn-digest svg{ color:var(--ember); }
-  .btn-digest:hover{
-    border-color:color-mix(in srgb, var(--ember) 76%, transparent);
-    box-shadow:0 14px 34px -16px color-mix(in srgb, var(--ember) 82%, transparent);
-  }
-  #digest{ scroll-margin-top:24px; }
-
   .btn-save{
     background:linear-gradient(180deg, color-mix(in srgb, var(--ember) 92%, white), var(--ember));
     color:var(--ember-ink);
@@ -272,6 +261,50 @@
   .btn-save small{ color:color-mix(in srgb, var(--ember-ink) 70%, transparent); }
   .btn-save svg{ color:var(--ember-ink); }
   .btn-save:hover{ transform:translateY(-2px); box-shadow:0 16px 34px -14px color-mix(in srgb, var(--ember) 80%, transparent); }
+
+
+  /* first-screen actions */
+  .hero-cta{ display:grid; gap:10px; margin-top:22px; }
+  .hero-cta .btn-save{ margin-top:0; }
+
+  /* order list */
+  .order{ list-style:none; margin:0; padding:0; display:grid; }
+  .order li{
+    position:relative; padding:.62em 0 .62em 1.25em;
+    font-size:.92rem; line-height:1.38; color:var(--text);
+    border-bottom:1px solid var(--line);
+  }
+  .order li:first-child{ border-top:1px solid var(--line); }
+  .order li::before{ content:"◆"; position:absolute; left:0; top:.95em; color:var(--a2); font-size:.55em; }
+  .more{
+    display:inline-block; margin-top:12px;
+    color:var(--a1); text-decoration:none; font-weight:600; font-size:.95rem;
+    border-bottom:1px solid color-mix(in srgb, var(--a1) 45%, transparent);
+  }
+  .more:hover{ border-bottom-color:var(--a1); }
+  .more:focus-visible{ outline:2px solid var(--a1); outline-offset:3px; }
+  .block-text{ margin:0; font-size:.95rem; line-height:1.5; color:var(--muted); }
+  .block-cta{ margin-top:14px; }
+
+  /* work tile marks */
+  .wbtn{ position:relative; }
+  .works .wbtn{ padding-top:1.6em; }
+  .wbtn .tag{
+    position:absolute; top:.6em; right:.75em; line-height:1;
+    font-family:var(--mono); font-size:.54rem; letter-spacing:.06em; font-weight:400;
+  }
+  .tag-live{ color:var(--a1); }
+  .tag-demo{ color:var(--faint); }
+  .works-note{ margin:0 0 12px; font-size:.86rem; line-height:1.45; }
+  .works-note a{ color:var(--a1); text-decoration:none; border-bottom:1px solid color-mix(in srgb, var(--a1) 40%, transparent); }
+
+  /* quote */
+  .quote{ margin:0; padding:2px 0 2px 14px; border-left:2px solid color-mix(in srgb, var(--a1) 60%, transparent); }
+  .quote p{ margin:0; font-size:1rem; line-height:1.45; color:var(--text); }
+  .quote cite{ display:block; margin-top:8px; font-style:normal; font-family:var(--mono); font-size:.62rem; letter-spacing:.04em; line-height:1.5; color:var(--faint); }
+
+  .btn-max:hover{ border-color:color-mix(in srgb, var(--ember) 60%, transparent); box-shadow:0 12px 30px -16px color-mix(in srgb, var(--ember) 70%, transparent); }
+  .btn-max svg{ color:var(--ember); }
 
   .tg-tag{ font-family:var(--mono); font-size:.64rem; letter-spacing:.06em; color:var(--faint); text-transform:uppercase; }
 
@@ -299,118 +332,152 @@
 <div class="stage" id="stage">
   <canvas id="aurora" aria-hidden="true"></canvas>
 
-  <main class="card" id="card" aria-label="Визитка Алёны Прасол">
+  <main class="card" id="card" aria-label="Визитка Алёны Прасоловой">
     <div class="sheen" id="sheen"></div>
     <div class="content">
 
       <div class="eyebrow rise d1">
         <span class="glyph">◈</span>
-        <span>Айхал · Саха (Якутия) · 65.9°N&nbsp;111.5°E</span>
+        <span>ИИ-помощники и сайты под ключ</span>
       </div>
 
-      <span class="status rise d1"><span class="pulse"></span>Открыта к&nbsp;проектам</span>
+      <span class="status rise d1"><span class="pulse"></span>Принимаю заказы</span>
 
       <h1 class="name rise d2">Алёна<br>Прасолова</h1>
 
-      <p class="statement rise d3">Автоматизирую и делаю&nbsp;<span class="hl">всё, что вы можете вообразить.</span></p>
+      <p class="statement rise d3">Снимаю с&nbsp;людей рутину: <span class="hl">тексты, документы, расписания и&nbsp;письма делает помощник.</span></p>
 
-      <p class="tagline rise d3">ИИ-помощники, сайты и боты — для дела, храма и семьи.</p>
+      <p class="tagline rise d3">Каждый день работаю в&nbsp;ChatGPT и&nbsp;Claude, у&nbsp;меня свой ИИ-помощник. Собираю такие же под чужие дела и&nbsp;делаю то, что нужно к&nbsp;сроку.</p>
 
       <ul class="chips rise d4">
-        <li>ИИ-ассистенты</li>
-        <li>Боты&nbsp;и&nbsp;автоматизация</li>
-        <li>Реставрация фото</li>
-        <li>Продуктовые платформы</li>
+        <li>Презентации и&nbsp;памятки</li>
+        <li>Документы и&nbsp;письма</li>
+        <li>ИИ-помощник под дело</li>
+        <li>Сайты и&nbsp;боты</li>
       </ul>
 
-      <p class="tagline rise d4" style="max-width:36ch">
-        ИИ-агент под ключ — <a href="https://svetopis.art/demo/stomatologiya/" target="_blank" rel="noopener" style="color:var(--text);font-weight:600;text-decoration:none;border-bottom:1px solid rgba(69,230,189,.45)">от 50&nbsp;000&nbsp;₽</a>,
-        сопровождение от 10&nbsp;000&nbsp;₽ в месяц.<br>
-        Для храмов и приходов — <a href="https://alenaprasol.github.io/masterskaya-svod/vizitka/" target="_blank" rel="noopener"
-        style="color:var(--a1);text-decoration:none;border-bottom:1px solid rgba(69,230,189,.4)">отдельная страница, свои цены</a>.
-      </p>
-
-      <section class="works rise d5" aria-label="Работы">
-                <div class="works-h">Храмам и приходам <span style="opacity:.6;font-weight:400">· от 3 000 ₽ · сайт, сбор, записки</span></div>
-        <div class="works-grid">
-          <a class="wbtn" href="https://hram-elhovka.ru" target="_blank" rel="noopener">
-            <span class="wn">Храм в Елховке <span class="ext">↗</span></span>
-            <span class="wd">сбор средств · счётчик и отчёты</span>
-          </a>
-          <a class="wbtn" id="digital-parish" href="https://khram-aikhal.github.io" target="_blank" rel="noopener">
-            <span class="wn">Записки онлайн <span class="ext">↗</span></span>
-            <span class="wd">о здравии и упокоении · оплата СБП</span>
-          </a>
-          <a class="wbtn" href="https://hram-elhovka.ru/tetrad/" target="_blank" rel="noopener">
-            <span class="wn">Библия за год <span class="ext">↗</span></span>
-            <span class="wd">учебная тетрадь для группы</span>
-          </a>
-          <a class="wbtn" href="https://svetopis.art" target="_blank" rel="noopener">
-            <span class="wn">Светопись <span class="ext">↗</span></span>
-            <span class="wd">церковные фотографы России</span>
-          </a>
-          <a class="wbtn wide" href="https://pravoslav.store" target="_blank" rel="noopener">
-            <span class="wn">Открытки <span class="ext">↗</span></span>
-            <span class="wd">православные открытки и расписания</span>
-          </a>
-        </div>
-
-        <div class="works-h works-h2">Медицине и клиникам <span style="opacity:.6;font-weight:400">· каталоги, помощники, предложения</span></div>
-        <div class="works-grid">
-          <a class="wbtn" href="https://svetopis.art/demo/regenguide/" target="_blank" rel="noopener">
-            <span class="wn">RegenGuide <span class="ext">↗</span></span>
-            <span class="wd">каталог сравнения клиник</span>
-          </a>
-          <a class="wbtn" href="https://svetopis.art/demo/stomatologiya/" target="_blank" rel="noopener">
-            <span class="wn">AI для клиники <span class="ext">↗</span></span>
-            <span class="wd">помощник стоматологии</span>
-          </a>
-        </div>
-
-        <div class="works-h works-h2">Делу и услугам <span style="opacity:.6;font-weight:400">· сайты и каталоги · агент под ключ от 50 000 ₽</span></div>
-        <div class="works-grid">
-          <a class="wbtn" href="https://svetopis.art/demo/balans/" target="_blank" rel="noopener">
-            <span class="wn">Баланс <span class="ext">↗</span></span>
-            <span class="wd">салон красоты · Айхал</span>
-          </a>
-          <a class="wbtn" href="https://svetopis.art/demo/miniapp-zavedenie/" target="_blank" rel="noopener">
-            <span class="wn">Mini App для кафе <span class="ext">↗</span></span>
-            <span class="wd">меню и доставка</span>
-          </a>
-          <a class="wbtn" href="https://svetopis.art/demo/telegram-magazin/" target="_blank" rel="noopener">
-            <span class="wn">Telegram-магазин <span class="ext">↗</span></span>
-            <span class="wd">каталог техники</span>
-          </a>
-          <a class="wbtn" href="https://svetopis.art/demo/kvartira-aikhal/" target="_blank" rel="noopener">
-            <span class="wn">Квартира посуточно <span class="ext">↗</span></span>
-            <span class="wd">аренда · Айхал</span>
-          </a>
-          <a class="wbtn" href="https://kitay-bez-paniki.ru" target="_blank" rel="noopener">
-            <span class="wn">Китай без паники <span class="ext">↗</span></span>
-            <span class="wd">путеводитель · маршруты и карты</span>
-          </a>
-          <a class="wbtn wide" href="https://svetopis.art/demo/atelier-portfolio/" target="_blank" rel="noopener">
-            <span class="wn">Atelier <span class="ext">↗</span></span>
-            <span class="wd">конструктор портфолио</span>
-          </a>
-        </div>
-
-        <div class="works-h works-h2">Семье и памяти <span style="opacity:.6;font-weight:400">· 500–2 000 ₽ за снимок</span></div>
-        <div class="works-grid">
-          <a class="wbtn" href="https://svetopis.art/demo/foto-restavraciya/" target="_blank" rel="noopener">
-            <span class="wn">Реставрация фото <span class="ext">↗</span></span>
-            <span class="wd">старые снимки · Telegram-бот</span>
-          </a>
-        </div>
-
-</section>
+      <div class="hero-cta rise d4">
+        <a class="btn btn-save" id="order" href="https://max.ru/se14170446_1_bot?start=vizitka" target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12a8.5 8.5 0 0 1-12.6 7.4L3 21l1.6-5.2A8.5 8.5 0 1 1 21 12z"/><path d="M8.5 12h.01M12 12h.01M15.5 12h.01"/></svg>
+          <span class="lab" style="align-items:center"><span>Заказать в&nbsp;MAX</span><small>смета за пару минут</small></span>
+        </a>
+        <a class="btn btn-tg" href="https://t.me/alenaprasol" target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M9.78 18.65l.28-4.23 7.68-6.92c.34-.31-.07-.46-.52-.19L7.74 13.3 3.64 12c-.88-.25-.9-.86.2-1.3l15.97-6.16c.73-.33 1.43.18 1.15 1.3l-2.72 12.81c-.19.91-.74 1.13-1.5.71L12.6 16.3l-1.99 1.93c-.23.23-.42.42-.83.42z"/></svg>
+          <span class="lab"><span>Написать в&nbsp;Telegram</span><small>@alenaprasol</small></span>
+          <span class="arw">→</span>
+        </a>
+      </div>
 
       <hr class="rule rise d5">
 
+      <section class="rise d5" aria-label="Что можно заказать сегодня">
+        <div class="works-h">Что можно заказать сегодня</div>
+        <ul class="order">
+          <li>Презентация к&nbsp;выступлению, защите, уроку: из вашего текста за&nbsp;1-2 дня</li>
+          <li>Памятка или буклет на&nbsp;одну страницу</li>
+          <li>Афиша и&nbsp;программа события</li>
+          <li>Грамоты и&nbsp;дипломы по&nbsp;списку</li>
+          <li>Документ до&nbsp;10 страниц: положение, инструкция, письмо</li>
+          <li>Расшифровка записи и&nbsp;конспект</li>
+          <li>Заявка на&nbsp;грант или субсидию: разбираю положение, собираю по&nbsp;форме</li>
+        </ul>
+        <p class="tagline">Смету считает мой помощник в&nbsp;MAX за&nbsp;пару минут. Сначала черновик, оплата после него.</p>
+        <a class="more" href="https://max.ru/se14170446_1_bot?start=vizitka" target="_blank" rel="noopener">Посчитать в&nbsp;MAX →</a>
+      </section>
+
+      <hr class="rule rise d5">
+
+      <section class="rise d5" aria-label="ИИ-помощник под ваше дело">
+        <div class="works-h">ИИ-помощник под ваше дело</div>
+        <p class="block-text">Мой помощник ведёт расписание, к&nbsp;8 утра собирает выжимку из&nbsp;24 каналов, готовит черновики писем и&nbsp;отчётов. Такого же собираю под салон, школу, приход или семью: он отвечает клиентам, напоминает, готовит бумаги. Начинаем с&nbsp;разговора на&nbsp;полчаса, цену называю до&nbsp;начала работы.</p>
+        <a class="btn btn-tg block-cta" href="https://t.me/alenaprasol" target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M9.78 18.65l.28-4.23 7.68-6.92c.34-.31-.07-.46-.52-.19L7.74 13.3 3.64 12c-.88-.25-.9-.86.2-1.3l15.97-6.16c.73-.33 1.43.18 1.15 1.3l-2.72 12.81c-.19.91-.74 1.13-1.5.71L12.6 16.3l-1.99 1.93c-.23.23-.42.42-.83.42z"/></svg>
+          <span class="lab"><span>Обсудить помощника</span><small>telegram · @alenaprasol</small></span>
+          <span class="arw">→</span>
+        </a>
+      </section>
+
+      <hr class="rule rise d5">
+
+      <section class="works rise d5" aria-label="Работы" style="margin-top:0">
+        <div class="works-h">Работы</div>
+
+        <div class="works-h works-h2" style="margin-top:6px">Приходам</div>
+        <p class="tagline works-note"><a href="https://svod.svetopis.art/vizitka/" target="_blank" rel="noopener">Для храмов отдельная страница с&nbsp;ценами и&nbsp;отзывами настоятелей →</a></p>
+        <div class="works-grid">
+          <a class="wbtn" href="https://hram-elhovka.ru" target="_blank" rel="noopener">
+            <span class="tag tag-live">работает</span>
+            <span class="wn">Храм в Елховке <span class="ext">↗</span></span>
+            <span class="wd">сайт и сбор на реставрацию</span>
+          </a>
+          <a class="wbtn" id="digital-parish" href="https://khram-aikhal.github.io" target="_blank" rel="noopener">
+            <span class="tag tag-live">работает</span>
+            <span class="wn">Записки онлайн <span class="ext">↗</span></span>
+            <span class="wd">записки с разбором имён, оплата приходу</span>
+          </a>
+          <a class="wbtn" href="https://hram-elhovka.ru/tetrad/" target="_blank" rel="noopener">
+            <span class="tag tag-live">работает</span>
+            <span class="wn">Библия за год <span class="ext">↗</span></span>
+            <span class="wd">тетрадь для приходской группы, 40 уроков</span>
+          </a>
+          <a class="wbtn" href="https://alenaprasol.github.io/degunino-raspisanie/nedelya/" target="_blank" rel="noopener">
+            <span class="tag tag-live">работает</span>
+            <span class="wn">Расписание прихода <span class="ext">↗</span></span>
+            <span class="wd">выходит в канал само каждое воскресенье</span>
+          </a>
+        </div>
+
+        <div class="works-h works-h2">Делу</div>
+        <div class="works-grid">
+          <a class="wbtn" href="https://svetopis.art/demo/balans/" target="_blank" rel="noopener">
+            <span class="tag tag-live">работает</span>
+            <span class="wn">Баланс <span class="ext">↗</span></span>
+            <span class="wd">салон красоты: сайт и ведение</span>
+          </a>
+          <a class="wbtn" href="https://kitay-bez-paniki.ru" target="_blank" rel="noopener">
+            <span class="tag tag-live">работает</span>
+            <span class="wn">Китай без паники <span class="ext">↗</span></span>
+            <span class="wd">мой сайт с маршрутами и оплатой</span>
+          </a>
+          <a class="wbtn" href="https://svetopis.art/demo/miniapp-zavedenie/" target="_blank" rel="noopener">
+            <span class="tag tag-demo">пример</span>
+            <span class="wn">Mini App для кафе <span class="ext">↗</span></span>
+            <span class="wd">меню и заказ в Telegram</span>
+          </a>
+          <a class="wbtn" href="https://svetopis.art/demo/telegram-magazin/" target="_blank" rel="noopener">
+            <span class="tag tag-demo">пример</span>
+            <span class="wn">Магазин в Telegram <span class="ext">↗</span></span>
+            <span class="wd">каталог с корзиной</span>
+          </a>
+        </div>
+
+        <div class="works-h works-h2">Семье</div>
+        <div class="works-grid">
+          <a class="wbtn wide" href="https://svetopis.art/demo/foto-restavraciya/" target="_blank" rel="noopener">
+            <span class="tag tag-live">работает</span>
+            <span class="wn">Реставрация фото <span class="ext">↗</span></span>
+            <span class="wd">старые снимки оживают, заказ в боте</span>
+          </a>
+        </div>
+      </section>
+
+      <hr class="rule rise d6">
+
+      <section class="rise d6" aria-label="Что говорят">
+        <div class="works-h">Что говорят</div>
+        <blockquote class="quote">
+          <p>«Её работа реально освобождает время для настоящей живой деятельности: общения с&nbsp;людьми и&nbsp;молитвы».</p>
+          <cite>иерей Даниил, настоятель храма Кирилла и&nbsp;Мефодия в&nbsp;Дегунине</cite>
+        </blockquote>
+        <a class="more" href="https://svod.svetopis.art/#otzyvy" target="_blank" rel="noopener">Все отзывы →</a>
+      </section>
+
+      <hr class="rule rise d6">
+
       <div class="contacts rise d6">
-        <a class="btn btn-digest" id="digest" href="https://t.me/alenaprasol" target="_blank" rel="noopener">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M8 4h8l3 3v13H5V4h3z"/><path d="M16 4v4h4"/><path d="M8 12h8M8 15h6M8 18h4"/></svg>
-          <span class="lab"><span>Заказать дайджест — 499 ₽</span><small>ссылки, выжимка и идеи применения</small></span>
+        <a class="btn btn-max" href="https://max.ru/se14170446_1_bot?start=vizitka" target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12a8.5 8.5 0 0 1-12.6 7.4L3 21l1.6-5.2A8.5 8.5 0 1 1 21 12z"/><path d="M8.5 12h.01M12 12h.01M15.5 12h.01"/></svg>
+          <span class="lab"><span>Помощник в&nbsp;MAX</span><small>заказ и смета</small></span>
           <span class="arw">→</span>
         </a>
 
@@ -432,14 +499,14 @@
           <span class="arw">→</span>
         </a>
 
-        <a class="btn btn-save" id="save" download="Alena_Prasol.vcf" href="#">
+        <a class="btn btn-save" id="save" download="Alena_Prasolova.vcf" href="#">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3v11m0 0-4-4m4 4 4-4M5 20h14"/></svg>
           <span class="lab" style="align-items:center"><span>Сохранить контакт</span></span>
         </a>
       </div>
 
       <div class="foot rise d6">
-        <span><span class="dia">◆</span>&nbsp;Айхал · Якутия</span>
+        <span><span class="dia">◆</span>&nbsp;Алёна Прасолова</span>
         <span>© 2026</span>
       </div>
 
@@ -458,8 +525,8 @@
     "N:Прасолова;Алёна;;;","FN:Алёна Прасолова",
     "TEL;TYPE=CELL:+79139213650",
     "EMAIL;TYPE=INTERNET:joyka08@mail.ru",
-    "ADR;TYPE=home:;;;Айхал;Республика Саха (Якутия);;Россия",
-    "NOTE:Строю ИИ-помощников — для дела, храма и семьи.",
+    "NOTE:ИИ-помощники и сайты под ключ. Заказ: max.ru/se14170446_1_bot",
+    "URL:https://alena.svetopis.art",
     "END:VCARD"
   ].join("\n");
   var save = document.getElementById("save");
