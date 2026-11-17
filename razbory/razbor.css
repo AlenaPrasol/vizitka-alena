@@ -102,6 +102,7 @@ a{color:inherit}
 .soglasie p{margin:0;flex:1 1 320px}
 .soglasie a{color:var(--bg)}
 .soglasie__k{display:flex;gap:10px}
+@media (max-width:600px){.soglasie{left:8px;right:8px;bottom:8px;padding:10px 12px;gap:8px 10px;font-size:13.5px;line-height:1.35;flex-wrap:nowrap}.soglasie p{flex:1 1 auto}.soglasie__k{flex-direction:column;gap:6px}.soglasie button{min-height:36px;padding:0 12px;font-size:13.5px}}
 .soglasie button{min-height:44px;padding:0 18px;font:600 15px "Manrope",sans-serif;border:0;cursor:pointer}
 .soglasie__da{background:var(--accent);color:var(--on-accent)}
 .soglasie__net{background:transparent;color:var(--bg);border:1px solid var(--bg)!important}
