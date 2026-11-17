@@ -88,3 +88,11 @@ a{color:inherit}
 .doc h2{font-size:clamp(1.3rem,1.1rem + .8vw,1.7rem);margin-top:40px}
 .doc table{width:100%;border-collapse:collapse;font-size:16px;margin:0 0 18px}
 .doc th,.doc td{text-align:left;vertical-align:top;padding:10px 12px 10px 0;border-bottom:1px solid var(--surface-2)}
+
+/* скачать без регистрации */
+.dl{margin:20px 0 8px;display:flex;flex-wrap:wrap;gap:8px 14px;align-items:center}
+.dl__a{display:inline-flex;align-items:center;min-height:48px;padding:0 20px;background:var(--ink);color:var(--bg);font-weight:600;font-size:16px;text-decoration:none}
+.dl__a::before{content:"↓";margin-right:10px}
+.dl__a:hover{background:#000}
+.dl span{font-size:14px;color:var(--muted)}
+.most{margin:8px 0 24px;padding:16px 20px;background:var(--surface);border-left:3px solid var(--accent)}
