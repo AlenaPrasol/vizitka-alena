@@ -27,7 +27,7 @@
       var a = e.target.closest && e.target.closest("a");
       if (!a) return;
       var h = a.getAttribute("href") || "";
-      if (h.indexOf("max.ru/") >= 0) cel("bot_max");
+      if (h.indexOf("max.ru/") >= 0) cel("knopka_bota");
       else if (h.indexOf("t.me/") >= 0) cel("telegram");
       else if (h.indexOf("fayly/") >= 0) cel("skachal");
     }, true);
