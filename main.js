@@ -10,6 +10,14 @@
   /* ---- окно помощника читает часы посетителя ---- */
   var den = document.getElementById('den');
   var chasy = document.getElementById('chasy');
+  var chasySt = document.getElementById('chasy-st');
+  /* лента дня листается внутри экрана телефона; подводим строку к середине экрана, не двигая страницу */
+  function kStroke(li, plavno) {
+    if (!den || !li) return;
+    var top = li.offsetTop - (den.clientHeight - li.offsetHeight) / 2;
+    if (den.scrollTo) den.scrollTo({ top: Math.max(0, top), behavior: plavno && !reduce ? 'smooth' : 'auto' });
+    else den.scrollTop = Math.max(0, top);
+  }
   var dni = ['воскресенье', 'понедельник', 'вторник', 'среда', 'четверг', 'пятница', 'суббота'];
 
   var igraet = false;
@@ -19,8 +27,9 @@
     var h = now.getHours() + now.getMinutes() / 60;
     var wd = now.getDay();
     if (chasy) {
-      chasy.textContent = String(now.getHours()).padStart(2, '0') + ':' + String(now.getMinutes()).padStart(2, '0') + ', ' + dni[wd];
+      chasy.textContent = dni[wd];
     }
+    if (chasySt) chasySt.textContent = String(now.getHours()).padStart(2, '0') + ':' + String(now.getMinutes()).padStart(2, '0');
     var items = Array.prototype.slice.call(den.children);
     var current = null;
     items.forEach(function (li) {
@@ -55,39 +64,27 @@
     if (!pervyy) { itog(); return; }
     if (current) {
       den.dataset.scrolled = '1';
-      /* на телефоне: четыре строки вокруг текущей, остальное по кнопке «весь день»; на компьютере весь список и подробность текущей */
-      var vesDen = document.getElementById('ves-den');
+      /* на компьютере сразу раскрыта подробность текущей строки */
       var telefon = window.matchMedia && window.matchMedia('(max-width: 900px)').matches;
       if (!telefon) {
         current.classList.add('is-open');
         var btn0 = current.querySelector('button'); if (btn0) btn0.setAttribute('aria-expanded', 'true');
       }
-      if (telefon && vesDen) {
-        var idx = items.indexOf(current);
-        var from = Math.max(0, Math.min(idx - 2, items.length - 4)), to = from + 3;
-        items.forEach(function (li, i) { li.classList.toggle('is-hidden', i < from || i > to); });
-        vesDen.hidden = false;
-        vesDen.setAttribute('aria-expanded', 'false');
-        vesDen.addEventListener('click', function () {
-          var svernut = vesDen.getAttribute('aria-expanded') === 'true';
-          items.forEach(function (li, i) { li.classList.toggle('is-hidden', svernut && (i < from || i > to)); });
-          vesDen.setAttribute('aria-expanded', svernut ? 'false' : 'true');
-          vesDen.textContent = svernut ? 'Весь день' : 'Свернуть';
-        });
-      }
     }
     /* день проигрывается: строка за строкой до текущего часа, потом окно живёт по часам */
-    var put = done.filter(function (li) { return !li.classList.contains('is-hidden'); });
-    if (reduce || put.length < 2) { itog(); return; }
+    var put = done;
+    if (reduce || put.length < 2) { itog(); kStroke(current, false); return; }
+    kStroke(put[0], false);
     igraet = true;
     var shag = Math.max(180, Math.min(320, 2400 / put.length));
     put.forEach(function (li, i) {
       setTimeout(function () {
         if (i) { put[i - 1].classList.remove('is-run'); put[i - 1].classList.add('is-done'); }
         li.classList.add('is-run');
+        kStroke(li, true);
       }, 500 + i * shag);
     });
-    setTimeout(function () { igraet = false; itog(); }, 500 + put.length * shag + 120);
+    setTimeout(function () { igraet = false; itog(); kStroke(current, true); }, 500 + put.length * shag + 120);
   }
   if (den) {
     Array.prototype.forEach.call(den.querySelectorAll('button'), function (b) { b.setAttribute('aria-expanded', 'false'); });
