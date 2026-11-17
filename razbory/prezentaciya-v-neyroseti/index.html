@@ -3,15 +3,15 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Как сделать презентацию через нейросеть: 3 правки, чтобы не было скучно</title>
-<meta name="description" content="Сделали презентацию в ChatGPT или Claude, а вышло скучно? 3 правки: вывод вместо темы, схема вместо списка, своё вместо общего. 2 готовых запроса внутри.">
+<title>Нейросеть для презентации: готовый запрос и 3 правки</title>
+<meta name="description" content="Нейросеть для презентации: 2 готовых запроса для ChatGPT и Claude, бесплатно и без почты, и 3 правки, после которых слайды слушают.">
 <link rel="canonical" href="https://alena.svetopis.art/razbory/prezentaciya-v-neyroseti/">
 <link rel="icon" href="/assets/znak.svg" type="image/svg+xml">
 <meta property="og:type" content="article">
 <meta property="og:locale" content="ru_RU">
 <meta property="og:site_name" content="Алёна Прасолова">
 <meta property="og:title" content="Сделали презентацию через нейросеть, а вышло скучно: 3 правки">
-<meta property="og:description" content="Почему ChatGPT и Claude выдают одинаковые слайды, три правки на один вечер и два готовых запроса, которые можно скопировать.">
+<meta property="og:description" content="Нейросеть для презентации: 2 готовых запроса для ChatGPT и Claude и 3 правки, после которых слайды слушают.">
 <meta property="og:url" content="https://alena.svetopis.art/razbory/prezentaciya-v-neyroseti/">
 <meta property="og:image" content="https://alena.svetopis.art/razbory/prezentaciya-v-neyroseti/img/pin-1.jpg">
 <meta property="og:image:width" content="1000">
@@ -19,59 +19,67 @@
 <meta property="article:published_time" content="2026-11-17">
 <meta property="article:author" content="Алёна Прасолова">
 <script type="application/ld+json">
-{"@context":"https://schema.org","@type":"Article","headline":"Сделали презентацию через нейросеть, а вышло скучно: 3 правки","description":"Как сделать презентацию через нейросеть и не получить скучные слайды: три правки и два готовых запроса для ChatGPT или Claude.","image":"https://alena.svetopis.art/razbory/prezentaciya-v-neyroseti/img/pin-1.jpg","datePublished":"2026-11-17","inLanguage":"ru","author":{"@type":"Person","name":"Алёна Прасолова","url":"https://alena.svetopis.art/"},"mainEntityOfPage":"https://alena.svetopis.art/razbory/prezentaciya-v-neyroseti/"}
+{"@context":"https://schema.org","@type":"Article","headline":"Сделали презентацию через нейросеть, а вышло скучно: 3 правки","description":"Нейросеть для презентации: 2 готовых запроса для ChatGPT и Claude, бесплатно и без почты, и 3 правки, после которых слайды слушают.","image":"https://alena.svetopis.art/razbory/prezentaciya-v-neyroseti/img/pin-1.jpg","datePublished":"2026-11-17","inLanguage":"ru","author":{"@type":"Person","name":"Алёна Прасолова","url":"https://alena.svetopis.art/"},"mainEntityOfPage":"https://alena.svetopis.art/razbory/prezentaciya-v-neyroseti/"}
 </script>
 <link rel="stylesheet" href="/razbory/razbor.css">
 <style>
-/* только для этой статьи; общий razbor.css не трогаем */
-.kratko{background:var(--paper);padding:18px clamp(18px,4vw,32px) 16px;margin:-8px 0 28px}
+/* только для этой статьи; всё общее (шапка, первый экран, подарок, заказ, «Ещё разборы») живёт в razbor.css */
+.kratko{background:var(--paper);padding:18px clamp(18px,4vw,32px) 10px;margin:0 0 20px}
 .kratko h2{margin:0 0 8px;font-size:clamp(1.35rem,1.2rem + .6vw,1.6rem)}
-.kratko ol{list-style:none;padding:0;counter-reset:k;margin:0 0 12px}
+.kratko ol{list-style:none;padding:0;counter-reset:k;margin:0 0 10px}
 .kratko li{counter-increment:k;position:relative;padding-left:38px;margin:0 0 8px;line-height:1.45}
 .kratko li::before{content:counter(k);position:absolute;left:0;top:.1em;width:26px;height:26px;display:flex;align-items:center;justify-content:center;background:var(--ink);color:var(--bg);font-size:15px;font-weight:700}
-.kratko p{margin:0 0 6px;font-size:16px}
-.kratko .tiho{color:var(--muted)}
-.proba{border:2px solid var(--ink);padding:18px clamp(18px,4vw,28px);margin:8px 0 8px}
+.kratko .st__zakaz{margin:0}
+.proba{border:2px solid var(--ink);padding:18px clamp(18px,4vw,28px);margin:24px 0 8px}
 .proba b{display:block;font-size:13px;letter-spacing:.12em;text-transform:uppercase;color:var(--accent);margin-bottom:6px}
 .proba p{margin:0}
-.zapros{margin:24px 0 8px;background:var(--paper)}
+.st h2+.fig{margin-top:20px}
+.zapros{margin:20px 0 8px;background:var(--bg)}
 .zapros__h{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:center;gap:10px 16px;padding:14px clamp(14px,3vw,22px);border-bottom:1px solid var(--surface-2)}
 .zapros__h p{margin:0;font-size:16px;line-height:1.45;flex:1 1 260px}
-.zapros pre{margin:0;padding:16px clamp(14px,3vw,22px) 20px;white-space:pre-wrap;overflow-wrap:anywhere;font:15px/1.55 "Manrope",system-ui,sans-serif;color:var(--ink)}
-.kop{min-height:44px;padding:0 18px;font:600 15px "Manrope",sans-serif;border:0;background:var(--accent);color:var(--on-accent);cursor:pointer;flex:0 0 auto}
+.zapros pre{margin:0;padding:16px clamp(14px,3vw,22px) 20px;white-space:pre-wrap;overflow-wrap:anywhere;font:16px/1.55 "Manrope",system-ui,sans-serif;color:var(--ink)}
+.kop{min-height:48px;padding:0 22px;font:600 16px "Manrope",sans-serif;border:0;background:var(--accent);color:var(--on-accent);cursor:pointer;flex:0 0 auto}
 .kop:hover{background:#A03D26}
 .kop.ok{background:var(--ink);color:var(--bg)}
+.dar .fig{margin:24px 0}
+.dar .dar__kn{margin-top:24px}
 .st .quote{margin:24px 0}
-.vopros{font-family:var(--serif);font-size:20px;line-height:1.5;margin:28px 0 0}
-.order ul{list-style:none;padding:0;margin:0 0 6px}
-.order li{position:relative;padding-left:22px;margin-bottom:8px}
-.order li::before{content:"";position:absolute;left:0;top:.62em;width:10px;height:2px;background:var(--accent)}
-.avtor{display:flex;gap:16px;align-items:flex-start;margin:40px 0 0;padding-top:24px;border-top:1px solid var(--surface-2)}
-.avtor svg{flex:0 0 44px;width:44px;height:44px}
-.avtor p{margin:0;font-size:15px;color:var(--muted)}
-.avtor strong{display:block;color:var(--ink);font-size:17px}
-.esche{list-style:none;padding:0!important;display:grid;grid-template-columns:1fr 1fr;gap:12px}
-.esche li{margin:0}
-.esche a{display:block;height:100%;padding:16px 18px;background:var(--surface);text-decoration:none;border-left:3px solid var(--ink);line-height:1.4}
-.esche a:hover{border-left-color:var(--accent)}
-.esche span{display:block;font-size:13px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);margin-bottom:4px}
-@media (max-width:760px){.esche{grid-template-columns:1fr}}
+.st .vopros{font-family:var(--serif);font-size:20px;line-height:1.5;margin:28px 0 0}
+@media (max-width:620px){.zapros{margin-inline:-8px}.zapros__h .kop{width:100%}}
 </style>
 </head>
 <body>
 <header class="top">
-  <a class="mark" href="/" aria-label="Алёна Прасолова, на главную">
+  <a class="mark" href="/razbory/" aria-label="Алёна Прасолова, все разборы">
     <svg viewBox="0 0 64 64" fill="none" aria-hidden="true"><path d="M8 50 L20 14 L32 50 M13 38 H27" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/><path d="M38 50 V14 H56 V50" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/><circle cx="47" cy="32" r="3.2" fill="#B4452C"/></svg>
-    <span>Алёна Прасолова</span>
+    <span class="mark__imya">Алёна Прасолова</span>
   </a>
-  <a class="top__link" href="#zakaz">Сделать за меня</a>
+  <nav class="top__nav" aria-label="Разделы">
+    <a class="top__link top__link--vse" href="/razbory/">Все разборы</a>
+    <a class="top__link" href="#zakaz">Сделать за меня</a>
+  </nav>
 </header>
 
 <main class="st">
-  <p class="st__kicker">Разбор · нейросеть и презентации</p>
-  <h1>Сделали презентацию через нейросеть, а вышло скучно: 3 правки</h1>
-  <p class="st__lead">«Вроде аккуратно, а смотреть скучно». Так часто бывает, если сделать презентацию через нейросеть. Исправляется за вечер.</p>
-  <p class="st__meta">Алёна Прасолова · 17 ноября 2026 · 4 минуты чтения</p>
+  <p class="st__kicker"><a href="/razbory/">Разбор</a> · нейросеть и презентации</p>
+  <h1 data-korotko="Презентация через нейросеть">Сделали презентацию через нейросеть, а вышло скучно: 3 правки</h1>
+  <p class="st__lead">Нейросеть для презентации дала скучные слайды? Правится за вечер.</p>
+  <a class="st__dar" href="#zapros">Внутри два готовых запроса, бесплатно</a>
+
+  <figure class="fig fig--wide fig--pervaya">
+    <div class="bs">
+      <div><span class="bs__label bs__label--do">Было · образец</span><img src="img/obrazec-neyroset-bylo.jpg" width="1600" height="900" data-pin-description="Как сделать презентацию через нейросеть: так выглядит типичный слайд из ChatGPT или Claude. Заголовок-тема, пять общих пунктов, иконка из набора." alt="Образец слайда из нейросети: заголовок Актуальность проблемы, пять общих пунктов и иконка с лампочкой"></div>
+      <div><span class="bs__label bs__label--posle">Стало · образец</span><img src="img/obrazec-neyroset-stalo.jpg" width="1600" height="900" data-pin-description="Тот же слайд после 3 правок: заголовок-вывод, цепочка из трёх звеньев вместо списка, своё фото с подписью. Презентация через нейросеть без скуки." alt="Тот же слайд после правок: заголовок Родители приходят за помощью, когда уже поздно, цепочка из трёх звеньев и рисунок кабинета на месте вашего фото с подписью"></div>
+    </div>
+    <figcaption>Образец. Слайд, каким его часто отдаёт нейросеть, и он же после трёх правок: вывод в заголовке, цепочка вместо списка, своё фото с подписью (здесь вместо фото рисунок).</figcaption>
+  </figure>
+
+  <p class="st__avtor">
+    <span class="st__avtor-znak" aria-hidden="true"><svg viewBox="0 0 64 64" fill="none"><path d="M8 50 L20 14 L32 50 M13 38 H27" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/><path d="M38 50 V14 H56 V50" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/><circle cx="47" cy="32" r="3.6" fill="#E9A48F"/></svg></span>
+    <span><b>Алёна Прасолова</b>, собираю презентации к выступлениям<br>17 ноября 2026 · 4 минуты чтения</span>
+  </p>
+
+  <p>«Вроде аккуратно, а смотреть скучно». Так часто бывает, если сделать презентацию через нейросеть.</p>
 
   <section class="kratko" id="kratko">
     <h2>Коротко</h2>
@@ -80,17 +88,10 @@
       <li>Списки превратите в схемы. Подряд не больше двух одинаковых слайдов.</li>
       <li>Общие слова замените своими примерами и фото, цифры сверьте с исходником.</li>
     </ol>
-    <p>У нейросети просите не слайды, а план слайдов. <a href="#zapros">Два готовых запроса ниже</a>, копируются одной кнопкой.</p>
-    <p class="tiho">Нет вечера на правки? <a href="#zakaz">Пришлите текст</a>, помощник задаст пару вопросов и назовёт цену.</p>
+    <p>У нейросети просите не слайды, а план слайдов. Два готовых запроса копируются одной кнопкой.</p>
+    <a class="st__zakaz" href="#zapros">Сразу к запросу</a>
   </section>
-
-  <figure class="fig fig--wide">
-    <div class="bs">
-      <div><span class="bs__label bs__label--do">Было · образец</span><img src="img/obrazec-neyroset-bylo.jpg" width="1600" height="900" data-pin-description="Как сделать презентацию через нейросеть: так выглядит типичный слайд из ChatGPT или Claude. Заголовок-тема, пять общих пунктов, иконка из набора." alt="Образец слайда из нейросети: заголовок Актуальность проблемы, пять общих пунктов и иконка с лампочкой"></div>
-      <div><span class="bs__label bs__label--posle">Стало · образец</span><img src="img/obrazec-neyroset-stalo.jpg" width="1600" height="900" data-pin-description="Тот же слайд после 3 правок: заголовок-вывод, цепочка из трёх звеньев вместо списка, место под своё фото. Презентация через нейросеть без скуки." alt="Тот же слайд после правок: заголовок Родители приходят за помощью, когда уже поздно, цепочка из трёх звеньев и место под своё фото"></div>
-    </div>
-    <figcaption>Образец. Слева слайд, каким его часто отдаёт нейросеть. Справа он же после трёх правок: вывод в заголовке, цепочка вместо списка, место под своё фото.</figcaption>
-  </figure>
+  <a class="st__zakaz" href="#zakaz">Нет вечера на правки? Пришлите текст</a>
 
   <div class="proba">
     <b>Попробуйте за 10 секунд</b>
@@ -102,6 +103,13 @@
   <p>Бросать нейросеть не нужно. Ей нужно точное задание, а черновику нужен человек, который доведёт его глазами.</p>
 
   <h2 id="pravki"><span class="num">1</span>Вместо темы вывод</h2>
+  <figure class="fig fig--wide">
+    <picture>
+      <source media="(max-width:760px)" srcset="img/obrazec-temy-vyvody-tel.jpg" width="1000" height="1250">
+      <img src="img/obrazec-temy-vyvody.jpg" width="1600" height="900" loading="lazy" data-pin-description="Нейросеть дала темы, а нужны выводы: «Актуальность проблемы» становится «Родители приходят за помощью, когда уже поздно». Учебный образец." alt="Образец: три зачёркнутых заголовка-темы «Актуальность проблемы», «Основные направления», «Заключение» и три вывода вместо них. Внизу: прочитайте только заголовки, сложился пересказ?">
+    </picture>
+    <figcaption>Образец. Три заголовка-темы и три вывода, которые встали на их место.</figcaption>
+  </figure>
   <p><strong>Как выглядит.</strong> «Актуальность проблемы», «Основные направления», «Заключение». Зал первым делом смотрит на заголовок. Если там тема, он сам гадает, к чему вы ведёте.</p>
   <h3>Как исправить</h3>
   <ol>
@@ -111,6 +119,13 @@
   </ol>
 
   <h2><span class="num">2</span>Вместо пятнадцати списков схемы</h2>
+  <figure class="fig fig--wide">
+    <picture>
+      <source media="(max-width:760px)" srcset="img/obrazec-15-i-ritm-tel.jpg" width="1000" height="1250">
+      <img src="img/obrazec-15-i-ritm.jpg" width="1600" height="900" loading="lazy" data-pin-description="15 одинаковых слайдов из нейросети и те же 15 с ритмом: карточки, лента, колесо, цепочка, таблица, тёмные слайды с одной мыслью. Подряд не больше двух одинаковых." alt="Образец: две ленты по 15 миниатюр. В первой все слайды одинаковые, заголовок и пять пунктов. Во второй слайды разного вида, каждый пятый-шестой тёмный, скобкой отмечено: подряд не больше двух одинаковых">
+    </picture>
+    <figcaption>Образец. Одна и та же презентация до правки и после: вид слайдов меняется, тёмные слайды делят доклад на части.</figcaption>
+  </figure>
   <p><strong>Как выглядит.</strong> Все слайды одинаковые: заголовок, пять пунктов, иногда картинка сбоку. Через пять минут зал перестаёт понимать, где вы.</p>
   <h3>Как исправить</h3>
   <ol>
@@ -129,11 +144,12 @@
     <li>Картинки из интернета замените своими фото с подписью. Своё фото доказывает, картинка «вообще» только украшает.</li>
   </ol>
 
-  <h2 id="zapros">Два готовых запроса для ChatGPT или Claude</h2>
-  <p>Главная хитрость: просить не слайды, а план слайдов. Таблицу исправить проще, чем пятнадцать готовых слайдов. Когда план устроит, в том же чате попросите файл PowerPoint или соберите слайды сами.</p>
+  <section class="dar" id="zapros">
+    <h2>Готовый запрос для нейросети: презентация в ChatGPT или Claude</h2>
+    <p>Главная хитрость: просить не слайды, а план слайдов. Таблицу исправить проще, чем пятнадцать готовых слайдов. Когда план устроит, в том же чате попросите файл PowerPoint или соберите слайды сами.</p>
 
-  <div class="zapros">
-    <div class="zapros__h"><p><strong>Запрос 1. План слайдов из текста.</strong> Впишите три строки в квадратных скобках и вставьте свой текст в конец.</p><button class="kop" type="button" data-for="z1">Скопировать</button></div>
+    <div class="zapros">
+      <div class="zapros__h"><p><strong>Запрос 1. План слайдов из текста.</strong> Впишите три строки в квадратных скобках и вставьте свой текст в конец.</p><button class="kop" type="button" data-for="z1">Скопировать</button></div>
 <pre id="z1">Сделай из моего текста не слайды, а план слайдов для выступления.
 
 Кто слушает: [родители / коллеги / клиенты]
@@ -154,10 +170,18 @@
 
 Мой текст:
 [вставьте текст доклада, реферат или конспект]</pre>
-  </div>
+    </div>
 
-  <div class="zapros">
-    <div class="zapros__h"><p><strong>Запрос 2. Проверка готовой презентации.</strong> Если слайды уже есть и вышли скучными.</p><button class="kop" type="button" data-for="z2">Скопировать</button></div>
+    <figure class="fig">
+      <picture>
+        <source media="(max-width:760px)" srcset="img/obrazec-plan-zaprosa-tel.jpg" width="1000" height="1250">
+        <img src="img/obrazec-plan-zaprosa.jpg" width="1600" height="900" loading="lazy" data-pin-description="Что вернёт готовый запрос для нейросети: не слайды, а план. Заголовок-вывод, форма слайда, что сказать вслух и пометки [НУЖЕН ФАКТ] и [ФОТО]." alt="Образец ответа на запрос 1: таблица-план из трёх слайдов. У каждого заголовок-вывод, форма (цепочка, карточки, одна мысль), что сказать вслух и чего не хватает: нужен факт, сколько обращений за год, и фото кабинета">
+      </picture>
+      <figcaption>Образец. Так выглядит ответ на запрос 1: план, в котором сразу видно, какого факта и какого фото не хватает.</figcaption>
+    </figure>
+
+    <div class="zapros">
+      <div class="zapros__h"><p><strong>Запрос 2. Проверка готовой презентации.</strong> Если слайды уже есть и вышли скучными.</p><button class="kop" type="button" data-for="z2">Скопировать</button></div>
 <pre id="z2">Вот текст моих слайдов по порядку: [заголовки и текст каждого слайда].
 Вот мой исходный текст: [реферат или конспект].
 
@@ -167,8 +191,18 @@
 3. Где подряд больше двух слайдов одного вида.
 4. Какие цифры, цитаты и имена есть на слайдах, но нет в моём тексте.
 5. Какие фразы общие и подошли бы к любому докладу.</pre>
-  </div>
-  <p class="dl"><a class="dl__a" href="fayly/zaprosy-dlya-prezentacii.txt" download>Скачать оба запроса</a> <span>простой текстовый файл. Работает в ChatGPT и Claude. Без регистрации.</span></p>
+    </div>
+
+    <div class="dar__kn">
+      <div>
+        <a class="kn kn--kontur" href="fayly/zaprosy-dlya-prezentacii.txt" download data-dar="txt">Скачать оба запроса бесплатно</a>
+        <p class="dar__pod">Текстовый файл, 4 КБ. Откроется на телефоне и на компьютере, запросы подходят для ChatGPT и Claude.</p>
+      </div>
+      <p class="dar__posle" hidden>Файл скачивается, ищите его в загрузках телефона. Не скачался? Откройте эту страницу в обычном браузере: меню с тремя точками, пункт «Открыть в браузере».</p>
+      <button class="dar__sebe" type="button" hidden>Отправить себе, чтобы открыть на компьютере</button>
+    </div>
+    <p class="dar__bez">Без регистрации и почты.</p>
+  </section>
   <p class="most">Запрос дал план, а собирать некогда? <a href="#zakaz">Пришлите план или текст</a>. Черновик вы увидите до оплаты.</p>
 
   <h2 id="kak">Как это делаю я: помощник собирает, я довожу глазами</h2>
@@ -180,36 +214,46 @@
 
   <section class="order" id="zakaz">
     <h2>Не хотите разбираться сами</h2>
-    <p>Нет вечера на доводку? Пришлите текст мне, сделаю по этой же схеме: помощник собирает, я довожу глазами.</p>
-    <p class="order__price">от 1 500 ₽</p>
-    <ul>
-      <li>Презентация до 10 слайдов.</li>
-      <li>Сначала черновик, оплата после него.</li>
-      <li>Редактируемый файл PowerPoint: поменять слово или цифру перед выступлением сможете сами, без меня.</li>
-    </ul>
-    <a class="btn" id="max-btn" href="https://max.ru/se14170446_1_bot?start=pin_neyroset">Прислать текст в MAX</a>
-    <p class="order__small">Откроется бот-приёмщик в мессенджере MAX: он спросит про выступление и назовёт цену. Удобнее Telegram? <a href="https://t.me/alenaprasol">Напишите мне туда</a>.</p>
+    <p>Нет вечера на доводку? Пришлите текст мне. Помощник (ИИ) собирает черновик слайдов, а я проверяю каждый своими глазами и довожу до ума.</p>
+    <p class="order__price">от 1 500 ₽ <small>презентация до 10 слайдов</small></p>
+    <h3 class="order__h">Как это будет</h3>
+    <ol class="order__shagi">
+      <li>Нажимаете кнопку, открывается чат с ботом-приёмщиком.</li>
+      <li>Бот задаёт пару вопросов про выступление и называет цену. До этого вы ничего не платите.</li>
+      <li>Присылаете текст и получаете черновик до оплаты. Готовая презентация за 1-2 дня, в заказе редактируемый файл PowerPoint.</li>
+    </ol>
+    <div class="order__primer">
+      <p class="order__primer-t">Пример первого сообщения</p>
+      <p class="order__primer-s" id="primer">Здравствуйте! Выступаю на педсовете в пятницу, 10 минут. Текст доклада пришлю следующим сообщением.</p>
+      <p class="order__primer-n"><button class="order__kop" type="button" data-kop="#primer">Скопировать</button> <span>Можно написать так или просто прислать текст.</span></p>
+    </div>
+    <div class="order__kn">
+      <a class="btn" id="max-btn" href="https://max.ru/se14170446_1_bot?start=pin_neyroset">Написать боту в MAX</a>
+      <a class="btn btn--tg" href="https://t.me/alenaprasol?text=Здравствуйте,%20Алёна!%20Нужна%20презентация%20к%20выступлению">Написать Алёне в Telegram</a>
+    </div>
+    <p class="order__small">В MAX отвечает бот-приёмщик, в Telegram я сама.</p>
   </section>
+
+  <nav class="eshche" aria-labelledby="eshche-h">
+    <h2 id="eshche-h">Ещё разборы</h2>
+    <ul>
+      <li><a href="/razbory/5-shem-vmesto-abzaca/"><img src="/razbory/oblozhki/5-shem-m.jpg" width="336" height="224" loading="lazy" alt=""><span class="eshche__t"><span class="eshche__rub">Слайды с текстом</span>5 схем, в которые превращается любой абзац</span></a></li>
+      <li><a href="/razbory/slaydy-s-foto/"><img src="/razbory/oblozhki/slaydy-s-foto-m.jpg" width="336" height="224" loading="lazy" alt=""><span class="eshche__t"><span class="eshche__rub">Слайды с фото</span>6 раскладок, в которых никому не режут голову</span></a></li>
+      <li><a href="/razbory/prezentaciya-psihologa/"><img src="/razbory/oblozhki/prezentaciya-psihologa-m.jpg" width="336" height="224" loading="lazy" alt=""><span class="eshche__t"><span class="eshche__rub">Кейс</span>Презентация психолога: 17 слайдов из реферата за сутки</span></a></li>
+      <li><a href="/razbory/3-oshibki-slaydov/"><img src="/razbory/oblozhki/3-oshibki-slaydov-m.jpg" width="336" height="224" loading="lazy" alt=""><span class="eshche__t"><span class="eshche__rub">Ошибки</span>3 ошибки, из-за которых слайды трудно читать</span></a></li>
+    </ul>
+    <a class="eshche__vse" href="/razbory/">Все разборы</a>
+  </nav>
 
   <section class="faq">
     <h2>Частые вопросы</h2>
     <details><summary>В какой нейросети лучше делать презентацию?</summary><p>Я работаю в ChatGPT и Claude, запросы из статьи подходят к обоим. Важнее не выбор нейросети, а задание: план с выводами и формами слайдов, а не «сделай презентацию».</p></details>
     <details><summary>Можно сразу попросить готовый файл PowerPoint?</summary><p>Можно. Но сначала план: в таблице ошибку видно сразу, а в готовом файле её придётся искать по слайдам. Утвердили план, тогда просите файл.</p></details>
     <details><summary>Нейросеть написала цифру. Как понять, что она настоящая?</summary><p>Сверьте с исходным текстом. Там нет? Спросите источник и проверьте его сами. Не нашли, уберите: на выступлении за цифру отвечаете вы, а не нейросеть.</p></details>
+    <details><summary>Подойдёт ли запрос для сервисов, которые сами собирают слайды?</summary><p>Да, план слайдов можно вставить в любой такой сервис. Я пользуюсь ChatGPT и Claude.</p></details>
   </section>
 
-  <div class="avtor">
-    <svg viewBox="0 0 64 64" fill="none" aria-hidden="true"><rect x="1" y="1" width="62" height="62" fill="#201E1C"/><path d="M8 50 L20 14 L32 50 M13 38 H27" stroke="#E2E1DC" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/><path d="M38 50 V14 H56 V50" stroke="#E2E1DC" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/><circle cx="47" cy="32" r="3.4" fill="#B4452C"/></svg>
-    <p><strong>Алёна Прасолова</strong>Презентации, афиши и памятки к выступлениям. Работы показаны с разрешения заказчиков, учебные образцы помечены.</p>
-  </div>
-
-  <h2>Ещё разборы</h2>
-  <ul class="esche">
-    <li><a href="/razbory/3-oshibki-slaydov/"><span>Было и стало</span>3 ошибки, из-за которых слайды трудно читать</a></li>
-    <li><a href="/razbory/5-shem-vmesto-abzaca/"><span>Слайды с текстом</span>5 схем вместо абзаца</a></li>
-    <li><a href="/razbory/slaydy-s-foto/"><span>Слайды с фото</span>6 раскладок, в которых никому не режут голову</a></li>
-    <li><a href="/razbory/prezentaciya-psihologa/"><span>Кейс</span>Презентация психолога к конференции: 17 слайдов за сутки</a></li>
-  </ul>
+  <p class="st__meta" style="margin-top:40px">Работы показаны с разрешения заказчиков. Учебные образцы помечены, чужих данных в них нет.</p>
 </main>
 <script>
 /* какой пин привёл: utm_content из адреса дописываем к метке бота (ничего не сохраняем и никуда не отправляем) */
@@ -230,8 +274,9 @@
 
 <footer class="foot">
   <span>Алёна Прасолова · понятные презентации, афиши и памятки</span>
-  <nav><a href="/">Главная</a><a href="/razbory/">Разборы</a><a href="/privacy/">Политика конфиденциальности</a><a href="https://t.me/alenaprasol">Telegram</a></nav>
+  <nav><a href="/razbory/">Разборы</a><a href="/">Об авторе и других работах</a><a href="/privacy/">Политика конфиденциальности</a><a href="https://t.me/alenaprasol">Telegram</a></nav>
 </footer>
+<script src="/razbory/razbor.js" defer></script>
 <script src="/razbory/metrika.js" defer></script>
 </body>
 </html>

@@ -51,8 +51,19 @@
       '<div class="soglasie__k"><button type="button" class="soglasie__da">Хорошо</button>' +
       '<button type="button" class="soglasie__net">Отказаться</button></div>';
     document.body.appendChild(d);
-    d.querySelector(".soglasie__da").onclick = function () { zapisat("da"); d.remove(); zapustit(); };
-    d.querySelector(".soglasie__net").onclick = function () { zapisat("net"); d.remove(); };
+    // пока плашка видна, у body класс и её высота: razbor.css даёт нижнее поле, чтобы плашка не закрывала кнопки и подвал
+    function vysota() { document.body.style.setProperty("--soglasie-v", d.offsetHeight + "px"); }
+    document.body.classList.add("est-soglasie");
+    vysota();
+    window.addEventListener("resize", vysota);
+    function ubrat() {
+      d.remove();
+      window.removeEventListener("resize", vysota);
+      document.body.classList.remove("est-soglasie");
+      document.body.style.removeProperty("--soglasie-v");
+    }
+    d.querySelector(".soglasie__da").onclick = function () { zapisat("da"); ubrat(); zapustit(); };
+    d.querySelector(".soglasie__net").onclick = function () { zapisat("net"); ubrat(); };
   }
 
   // кнопки на /privacy/: изменить выбор
