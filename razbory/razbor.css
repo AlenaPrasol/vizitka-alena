@@ -1,0 +1,90 @@
+/* Разборы на alena.svetopis.art: страницы, на которые ведут пины Pinterest. Палитра и шрифты визитки («Свод»). */
+
+@font-face{font-family:"Manrope";font-style:normal;font-weight:200 800;font-display:swap;src:url(/fonts/manrope-cyrillic.woff2) format("woff2");unicode-range:U+0301,U+0400-045F,U+0490-0491,U+04B0-04B1,U+2116}
+@font-face{font-family:"Manrope";font-style:normal;font-weight:200 800;font-display:swap;src:url(/fonts/manrope-latin.woff2) format("woff2");unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
+@font-face{font-family:"PT Serif";font-style:normal;font-weight:400;font-display:swap;src:url(/fonts/PTSerif-400-cyr.woff2) format("woff2");unicode-range:U+0301,U+0400-045F,U+0490-0491,U+04B0-04B1,U+2116}
+@font-face{font-family:"PT Serif";font-style:normal;font-weight:400;font-display:swap;src:url(/fonts/PTSerif-400-lat.woff2) format("woff2");unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
+@font-face{font-family:"PT Serif";font-style:italic;font-weight:400;font-display:swap;src:url(/fonts/PTSerif-400i-cyr.woff2) format("woff2");unicode-range:U+0301,U+0400-045F,U+0490-0491,U+04B0-04B1,U+2116}
+
+:root{
+  --bg:#E2E1DC; --surface:#ECEBE7; --paper:#F1F1EE; --surface-2:#D5D3CD;
+  --ink:#201E1C; --muted:#4A4846; --accent:#B4452C; --on-accent:#F1F1EE;
+  --serif:"PT Serif",Georgia,"Times New Roman",serif;
+  --margin:40px; --text:720px;
+}
+@media (max-width:760px){:root{--margin:20px}}
+
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:"Manrope",system-ui,-apple-system,"Segoe UI",Arial,sans-serif;font-size:18px;line-height:1.6;overflow-x:hidden}
+img{display:block;max-width:100%;height:auto}
+a{color:inherit}
+:focus-visible{outline:2px solid var(--ink);outline-offset:3px}
+::selection{background:var(--ink);color:var(--bg)}
+
+/* шапка и подвал как у визитки */
+.top{display:flex;justify-content:space-between;align-items:center;gap:16px;padding:20px var(--margin)}
+.mark{display:inline-flex;align-items:center;gap:12px;font-weight:500;font-size:17px;text-decoration:none}
+.mark svg{width:30px;height:30px}
+.top__link{font-size:15px;text-decoration:none;border-bottom:1px solid currentColor}
+.foot{display:flex;flex-wrap:wrap;gap:12px 24px;justify-content:space-between;padding:80px var(--margin) 30px;font-size:14px;color:var(--muted)}
+.foot nav{display:flex;flex-wrap:wrap;gap:12px 24px}
+.foot a{color:var(--ink)}
+
+/* статья */
+.st{max-width:calc(var(--text) + 2*var(--margin));margin:0 auto;padding:24px var(--margin) 0}
+.st__kicker{font-size:14px;letter-spacing:.08em;text-transform:uppercase;color:var(--accent);font-weight:600;margin:0 0 14px}
+.st h1{font-family:var(--serif);font-weight:400;font-size:clamp(2rem,1.4rem + 2.6vw,3.25rem);line-height:1.1;letter-spacing:-.01em;margin:0 0 18px;text-wrap:balance}
+.st__lead{font-size:clamp(1.15rem,1rem + .5vw,1.35rem);line-height:1.5;margin:0 0 18px}
+.st__meta{font-size:14px;color:var(--muted);margin:0 0 32px}
+.st h2{font-family:var(--serif);font-weight:400;font-size:clamp(1.6rem,1.3rem + 1.2vw,2.2rem);line-height:1.15;margin:64px 0 16px;text-wrap:balance}
+.st h3{font-size:19px;font-weight:600;margin:28px 0 8px}
+.st p{margin:0 0 16px}
+.st ul,.st ol{margin:0 0 18px;padding-left:1.3em}
+.st li{margin:0 0 8px}
+.st strong{font-weight:600}
+.num{display:inline-flex;align-items:center;justify-content:center;width:44px;height:44px;margin-right:12px;background:var(--ink);color:var(--bg);font-family:"Manrope",sans-serif;font-size:20px;vertical-align:.15em}
+
+/* картинки «было → стало»: шире текста на больших экранах */
+.fig{margin:28px 0 32px}
+.fig--wide{margin-inline:calc((min(1100px,100vw - 2*var(--margin)) - var(--text))/-2)}
+.fig img{width:100%;background:var(--paper)}
+.fig figcaption{font-size:14px;color:var(--muted);margin-top:10px}
+.bs{display:grid;grid-template-columns:1fr 1fr;gap:16px;align-items:start}
+.bs__label{display:block;font-size:13px;letter-spacing:.1em;text-transform:uppercase;font-weight:700;margin:0 0 8px}
+.bs__label--do{color:var(--muted)}
+.bs__label--posle{color:var(--accent)}
+@media (max-width:760px){.bs{grid-template-columns:1fr}.fig--wide{margin-inline:0}}
+
+/* чек-лист */
+.check{background:var(--paper);padding:28px clamp(20px,4vw,40px);margin:32px 0}
+.check h2{margin-top:0}
+.check ol{list-style:none;padding:0;counter-reset:c}
+.check li{position:relative;padding-left:40px;margin-bottom:14px}
+.check li::before{content:"";position:absolute;left:0;top:.2em;width:22px;height:22px;border:2px solid var(--ink)}
+
+/* отзыв */
+.quote{margin:28px 0;padding:0 0 0 24px;border-left:3px solid var(--accent);font-family:var(--serif);font-size:20px;line-height:1.5}
+.quote footer{font-family:"Manrope",sans-serif;font-size:14px;color:var(--muted);margin-top:10px}
+
+/* заказ */
+.order{background:var(--ink);color:var(--bg);padding:36px clamp(20px,4vw,48px);margin:56px 0 24px}
+.order h2{color:var(--bg);margin-top:0}
+.order__price{font-family:var(--serif);font-size:clamp(2rem,1.5rem + 2vw,3rem);line-height:1;margin:8px 0 12px}
+.btn{display:inline-flex;align-items:center;justify-content:center;min-height:56px;padding:0 28px;font-weight:600;font-size:18px;text-decoration:none;background:var(--accent);color:var(--on-accent);margin-top:12px}
+.btn:hover{background:#A03D26}
+.order__small{font-size:14px;opacity:.8;margin-top:14px}
+
+/* вопросы */
+.faq details{border-top:1px solid var(--surface-2);padding:14px 0}
+.faq details:last-child{border-bottom:1px solid var(--surface-2)}
+.faq summary{cursor:pointer;font-weight:600;list-style:none}
+.faq summary::-webkit-details-marker{display:none}
+.faq summary::after{content:"+";float:right;font-weight:400}
+.faq details[open] summary::after{content:"−"}
+.faq details p{margin:10px 0 0}
+
+/* политика */
+.doc h2{font-size:clamp(1.3rem,1.1rem + .8vw,1.7rem);margin-top:40px}
+.doc table{width:100%;border-collapse:collapse;font-size:16px;margin:0 0 18px}
+.doc th,.doc td{text-align:left;vertical-align:top;padding:10px 12px 10px 0;border-bottom:1px solid var(--surface-2)}
