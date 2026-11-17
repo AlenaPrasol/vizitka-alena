@@ -47,7 +47,7 @@
     d.className = "soglasie";
     d.setAttribute("role", "dialog");
     d.setAttribute("aria-label", "Счётчик посещений");
-    d.innerHTML = '<p>Считаю посещения Яндекс Метрикой, без записи экрана. <a href="/privacy/#metrika">Подробнее</a></p>' +
+    d.innerHTML = '<p>Считаю посещения Яндекс Метрикой<span class="soglasie__dop">, без записи экрана</span>. <a href="/privacy/#metrika">Подробнее</a></p>' +
       '<div class="soglasie__k"><button type="button" class="soglasie__da">Хорошо</button>' +
       '<button type="button" class="soglasie__net">Отказаться</button></div>';
     document.body.appendChild(d);

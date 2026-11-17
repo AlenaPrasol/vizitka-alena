@@ -30,7 +30,7 @@
 .korotko li{position:relative;padding-left:26px}
 .korotko li::before{content:"";position:absolute;left:2px;top:.62em;width:10px;height:10px;background:var(--accent)}
 .opyt{background:var(--paper);border:2px dashed var(--ink);padding:24px clamp(18px,4vw,32px);margin:32px 0}
-.opyt__t{font-size:14px;letter-spacing:.08em;text-transform:uppercase;font-weight:700;color:var(--accent);margin:0 0 8px}
+.opyt__t{font-size:14px;letter-spacing:.08em;text-transform:uppercase;font-weight:700;color:var(--accent-t);margin:0 0 8px}
 .opyt p:last-child{margin-bottom:0}
 .zitata-start{font-family:var(--serif);font-size:clamp(1.25rem,1.1rem + .6vw,1.5rem);line-height:1.45;margin:8px 0 12px}
 .shagi li{margin-bottom:12px}
@@ -40,6 +40,9 @@
 .pam-spisok p{margin-bottom:10px}
 .check--skelet{margin-top:24px}
 .check--skelet h3{font-family:var(--serif);font-weight:400;font-size:1.35rem;line-height:1.25;margin:0 0 12px}
+.check--skelet .dl{display:block}
+.check--skelet .dl__a{display:flex;justify-content:center;width:100%;min-height:52px;font-size:17px;margin-bottom:10px}
+.check--skelet .dl span{display:block;font-size:16px;line-height:1.4}
 .check ol.nomera{counter-reset:s;padding:0}
 .check ol.nomera li{counter-increment:s;padding-left:46px;margin-bottom:12px}
 .check ol.nomera li::before{content:counter(s);border:0;background:var(--ink);color:var(--bg);width:30px;height:30px;font-size:14px;font-weight:700;display:flex;align-items:center;justify-content:center;top:.05em}
@@ -95,6 +98,17 @@
     <li>Людей на фото крупно, памятку залу в руки.</li>
   </ul>
   <a class="st__zakaz" href="#zakaz">Некогда? Пришлите текст доклада</a>
+
+  <aside class="darm" aria-label="Подарок к статье">
+    <img class="darm__img" src="img/skelet-prevyu-m.jpg" width="400" height="300" loading="lazy" alt="">
+    <p class="darm__rub">Бесплатно</p>
+    <p class="darm__t">Скелет доклада: шаблон презентации на 15&nbsp;слайдов</p>
+    <div class="darm__kn">
+      <a class="kn kn--glav" href="fayly/skelet-doklada-15-slaydov.pdf" data-dar="pdf">Открыть PDF</a>
+      <a class="darm__esche" href="#skelet">Подробнее ниже</a>
+    </div>
+    <p class="dar__posle" hidden>Файл открывается или скачивается, ищите его в загрузках телефона. Не открылся? Откройте эту страницу в обычном браузере: меню с тремя точками, пункт «Открыть в браузере».</p>
+  </aside>
 
   <div class="opyt">
     <p class="opyt__t">Попробуйте за 10 секунд</p>
@@ -155,7 +169,7 @@
     <div class="dar__kn">
       <div>
         <a class="kn kn--glav" href="fayly/skelet-doklada-15-slaydov.pdf" data-dar="pdf">Открыть PDF</a>
-        <p class="dar__pod">Откроется прямо на телефоне, можно листать. На каждой странице слайд и подсказка к нему.</p>
+        <p class="dar__pod">PDF, 1,6 МБ. Откроется прямо на телефоне, можно листать. На каждой странице слайд и подсказка к нему.</p>
       </div>
       <div>
         <a class="kn kn--kontur" href="fayly/skelet-doklada-15-slaydov.pptx" download data-dar="pptx">Скачать для PowerPoint</a>
@@ -225,6 +239,11 @@
     <h2>Такую же к вашему выступлению</h2>
     <p>Пришлите текст доклада в любом виде и фото, если есть. Помощник (ИИ) собирает черновик, а я довожу каждый слайд своими глазами.</p>
     <p class="order__price">от 1 500 ₽ <small>презентация до 10 слайдов · памятка A5 на две стороны 500 ₽</small></p>
+    <div class="order__kn">
+      <a class="btn" id="max-btn" href="https://max.ru/se14170446_1_bot?start=pin_psiholog">Написать боту в MAX</a>
+      <a class="btn btn--tg" href="https://t.me/alenaprasol?text=Здравствуйте,%20Алёна!%20Нужна%20презентация%20к%20выступлению">Написать Алёне в Telegram</a>
+    </div>
+    <p class="order__small">В MAX отвечает бот-приёмщик, в Telegram я сама.</p>
     <h3 class="order__h">Как это будет</h3>
     <ol class="order__shagi">
       <li>Нажимаете кнопку, открывается чат с ботом-приёмщиком.</li>
@@ -233,14 +252,9 @@
     </ol>
     <div class="order__primer">
       <p class="order__primer-t">Пример первого сообщения</p>
-      <p class="order__primer-s" id="primer">Здравствуйте! Выступаю на педсовете в пятницу, 10 минут. Текст доклада пришлю следующим сообщением.</p>
+      <p class="order__primer-s" id="primer">Здравствуйте! Выступаю на конференции в пятницу, 15 минут. Текст доклада пришлю следующим сообщением.</p>
       <p class="order__primer-n"><button class="order__kop" type="button" data-kop="#primer">Скопировать</button> <span>Можно написать так или просто прислать текст.</span></p>
     </div>
-    <div class="order__kn">
-      <a class="btn" id="max-btn" href="https://max.ru/se14170446_1_bot?start=pin_psiholog">Написать боту в MAX</a>
-      <a class="btn btn--tg" href="https://t.me/alenaprasol?text=Здравствуйте,%20Алёна!%20Нужна%20презентация%20к%20выступлению">Написать Алёне в Telegram</a>
-    </div>
-    <p class="order__small">В MAX отвечает бот-приёмщик, в Telegram я сама.</p>
   </section>
 
   <nav class="eshche" aria-labelledby="eshche-h">
@@ -266,11 +280,11 @@
     <p><b>Алёна Прасолова.</b> Собираю презентации, памятки и афиши к выступлениям. Помощник (ИИ) делает черновик, каждый слайд я довожу своими глазами.</p>
   </div>
 
-  <p class="st__meta" style="margin-top:40px">Алёна Прасолова. Работа показана с разрешения Анны Комарницькой. Образцы шаблона и памятки мои, чужих данных в них нет.</p>
+  <p class="st__meta" style="margin-top:24px">Работа показана с разрешения Анны Комарницькой. Образцы шаблона и памятки мои, чужих данных в них нет.</p>
 </main>
 <script>
 /* какой пин привёл: utm_content из адреса дописываем к метке бота (ничего не сохраняем и никуда не отправляем) */
-(function(){try{var c=new URLSearchParams(location.search).get("utm_content");if(!c)return;c=c.toLowerCase().replace(/[^a-z0-9]/g,"_").slice(0,24);var a=document.getElementById("max-btn");if(a&&c)a.href="https://max.ru/se14170446_1_bot?start=pin_psiholog_"+c;}catch(e){}})();
+(function(){try{var c=new URLSearchParams(location.search).get("utm_content");if(!c)return;c=c.toLowerCase().replace(/[^a-z0-9]/g,"_").slice(0,18);var a=document.getElementById("max-btn");if(a&&c)a.href="https://max.ru/se14170446_1_bot?start=pin_psiholog_"+c;}catch(e){}})();
 </script>
 
 <footer class="foot">

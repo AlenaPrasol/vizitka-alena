@@ -1,6 +1,6 @@
 /* Общий скрипт разборов, без библиотек. Ничего не сохраняет и никуда не отправляет.
    1. Липкая строка с названием статьи (строится из <h1 data-korotko="Короткое название">).
-   2. Подсказка после нажатия на кнопку подарка: <a data-dar> внутри .dar открывает .dar__posle.
+   2. Подсказка после нажатия на кнопку подарка: <a data-dar> внутри .dar или .darm открывает .dar__posle.
    3. Кнопка «Скопировать»: <button data-kop="#id-текста">.
    4. «Отправить себе»: <button class="dar__sebe" hidden>, показывается, если есть navigator.share или буфер обмена.
    Метку бота из utm_content дописывает встроенный скрипт статьи, здесь этого нет. */
@@ -66,7 +66,7 @@
     document.addEventListener("click", function (e) {
       var a = e.target.closest && e.target.closest("a[data-dar]");
       if (!a) return;
-      var blok = a.closest(".dar");
+      var blok = a.closest(".dar, .darm");
       var p = blok && blok.querySelector(".dar__posle");
       if (p) p.hidden = false;
     });
@@ -79,8 +79,15 @@
       if (!kn) return;
       var el = document.querySelector(kn.getAttribute("data-kop"));
       if (!el) return;
-      skopirovat(el.textContent.replace(/\s+/g, " ").trim()).then(
-        function () { migni(kn, "Скопировано"); },
+      // текст в <pre> (готовый запрос) копируем как есть, со строками; обычный абзац одной строкой
+      var tekst = el.tagName === "PRE" ? el.textContent.trim() : el.textContent.replace(/\s+/g, " ").trim();
+      skopirovat(tekst).then(
+        function () {
+          migni(kn, "Скопировано");
+          // кнопка в компактной карточке подарка: под ней открывается подсказка, что делать дальше
+          var k = kn.closest(".darm"), p = k && k.querySelector(".dar__posle");
+          if (p) p.hidden = false;
+        },
         function () { migni(kn, "Выделите текст и скопируйте"); }
       );
     });

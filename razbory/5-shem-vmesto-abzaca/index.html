@@ -26,14 +26,14 @@
 /* только для этой статьи; всё общее (шапка, первый экран, подарок, заказ, «Ещё разборы») живёт в razbor.css */
 .ic{width:40px;height:27px;flex:none;color:var(--ink);--a:var(--accent)}
 .podskazki{width:100%;border-collapse:collapse;margin:8px 0 18px;font-size:16px;line-height:1.4}
-.podskazki th{text-align:left;font-size:13px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);font-weight:600;padding:0 10px 8px 0;border-bottom:2px solid var(--ink)}
+.podskazki th{text-align:left;font-size:14px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);font-weight:600;padding:0 10px 8px 0;border-bottom:2px solid var(--ink)}
 .podskazki td{padding:10px 10px 10px 0;border-bottom:1px solid var(--surface-2);vertical-align:middle}
 .podskazki td:last-child{padding-right:0;white-space:nowrap;font-weight:700}
 .podskazki td:last-child span{display:inline-flex;align-items:center;gap:10px}
 .podskazki .ic{width:36px;height:24px}
 .vopros{border-left:3px solid var(--accent);padding:4px 0 4px 20px;margin:48px 0 0}
 .vopros h2{margin:0 0 10px}
-@media (max-width:760px){.podskazki{font-size:15px}}
+@media (max-width:760px){.podskazki{font-size:16px}}
 </style>
 </head>
 <body>
@@ -104,6 +104,17 @@
     </tbody>
   </table>
   <p>Ничего не нашлось? Значит, в абзаце пояснение для вас, а не мысль для зала. Оставьте на слайде заголовок-вывод, остальное в заметки.</p>
+
+  <aside class="darm" aria-label="Подарок к статье">
+    <img class="darm__img" src="img/zagotovka-prevyu-m.jpg" width="400" height="300" loading="lazy" alt="">
+    <p class="darm__rub">Бесплатно</p>
+    <p class="darm__t">Шаблон PowerPoint «5&nbsp;схем вместо абзаца», 7&nbsp;слайдов</p>
+    <div class="darm__kn">
+      <a class="kn kn--glav" href="fayly/5-shem-vmesto-abzaca.pdf" data-dar="pdf">Открыть PDF</a>
+      <a class="darm__esche" href="#zagotovka">Подробнее ниже</a>
+    </div>
+    <p class="dar__posle" hidden>Файл открывается или скачивается, ищите его в загрузках телефона. Не открылся? Откройте эту страницу в обычном браузере: меню с тремя точками, пункт «Открыть в браузере».</p>
+  </aside>
 
   <h2><span class="num">1</span>Карточки: пункты равны</h2>
   <p>Список читают сверху вниз, как текст. Карточки глаз схватывает сразу: мыслей три, и они равны.</p>
@@ -178,13 +189,18 @@
   </figure>
   <p>Слайды с карточками и колесом выше из презентации, которую я собирала Анне Комарницькой, психологу и преподавателю, к XIV Международному симпозиуму медицинских антропологов в Москве, сентябрь 2026 года.</p>
   <p><strong>Было:</strong> реферат на 3,5 страницы сплошного текста, фото со встреч и сутки до доклада.<br><strong>Стало:</strong> 17 слайдов со схемами и памятка для зала. Успели.</p>
-  <blockquote class="quote">«Я обратилась к Алёне, и она мне всё сделала. Спасибо большое! Я под таким впечатлением, это просто счастье, словами не передать. У меня завтра конференция, уровень высокий, а у меня один доклад, и получилось так красиво!»<footer>Анна Комарницькая, психолог</footer></blockquote>
+  <blockquote class="quote">«У меня завтра конференция, уровень высокий, а у меня один доклад, и получилось так красиво!»<footer>Анна Комарницькая, психолог.<span data-esli="prezentaciya-psihologa"> <a href="/razbory/prezentaciya-psihologa/#keys">Весь отзыв и заказ по шагам</a></span></footer></blockquote>
   <p>Сейчас Анна вернулась к нам уже пятый раз.</p>
 
   <section class="order" id="zakaz">
     <h2>Не хотите разбираться сами</h2>
     <p>Абзацев тридцать, а выступать скоро? Пришлите текст мне. Помощник (ИИ) собирает черновик слайдов, а я проверяю каждый своими глазами и довожу до ума.</p>
     <p class="order__price">от 1 500 ₽ <small>презентация до 10 слайдов</small></p>
+    <div class="order__kn">
+      <a class="btn" id="max-btn" href="https://max.ru/se14170446_1_bot?start=pin_5shem">Написать боту в MAX</a>
+      <a class="btn btn--tg" href="https://t.me/alenaprasol?text=Здравствуйте,%20Алёна!%20Нужна%20презентация%20к%20выступлению">Написать Алёне в Telegram</a>
+    </div>
+    <p class="order__small">В MAX отвечает бот-приёмщик, в Telegram я сама.</p>
     <h3 class="order__h">Как это будет</h3>
     <ol class="order__shagi">
       <li>Нажимаете кнопку, открывается чат с ботом-приёмщиком.</li>
@@ -196,11 +212,6 @@
       <p class="order__primer-s" id="primer">Здравствуйте! Выступаю на педсовете в пятницу, 10 минут. Текст доклада пришлю следующим сообщением.</p>
       <p class="order__primer-n"><button class="order__kop" type="button" data-kop="#primer">Скопировать</button> <span>Можно написать так или просто прислать текст.</span></p>
     </div>
-    <div class="order__kn">
-      <a class="btn" id="max-btn" href="https://max.ru/se14170446_1_bot?start=pin_5shem">Написать боту в MAX</a>
-      <a class="btn btn--tg" href="https://t.me/alenaprasol?text=Здравствуйте,%20Алёна!%20Нужна%20презентация%20к%20выступлению">Написать Алёне в Telegram</a>
-    </div>
-    <p class="order__small">В MAX отвечает бот-приёмщик, в Telegram я сама.</p>
   </section>
 
   <nav class="eshche" aria-labelledby="eshche-h">
@@ -231,7 +242,7 @@
 </main>
 <script>
 /* какой пин привёл: utm_content из адреса дописываем к метке бота (ничего не сохраняем и никуда не отправляем) */
-(function(){try{var c=new URLSearchParams(location.search).get("utm_content");if(!c)return;c=c.toLowerCase().replace(/[^a-z0-9]/g,"_").slice(0,24);var a=document.getElementById("max-btn");if(a&&c)a.href="https://max.ru/se14170446_1_bot?start=pin_5shem_"+c;}catch(e){}})();
+(function(){try{var c=new URLSearchParams(location.search).get("utm_content");if(!c)return;c=c.toLowerCase().replace(/[^a-z0-9]/g,"_").slice(0,18);var a=document.getElementById("max-btn");if(a&&c)a.href="https://max.ru/se14170446_1_bot?start=pin_5shem_"+c;}catch(e){}})();
 </script>
 
 <footer class="foot">

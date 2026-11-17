@@ -25,7 +25,7 @@
 <style>
 /* только для этой статьи; всё общее (шапка, первый экран, подарок, заказ, «Ещё разборы») живёт в razbor.css */
 .probuy{margin:24px 0;padding:18px 20px;background:var(--paper);border-left:3px solid var(--ink)}
-.probuy b{display:block;font-size:13px;letter-spacing:.1em;text-transform:uppercase;color:var(--accent);margin-bottom:6px}
+.probuy b{display:block;font-size:14px;letter-spacing:.1em;text-transform:uppercase;color:var(--accent-t);margin-bottom:6px}
 .probuy p{margin:0}
 .rl{list-style:none;padding:0!important;counter-reset:r}
 .rl li{position:relative;padding-left:52px;margin-bottom:16px}
@@ -80,7 +80,7 @@
 
   <p>Фото ставьте целиком, текст рядом со снимком, а не на лицах, у каждого кадра подпись. Потом выберите одну из шести раскладок. Ниже всё на настоящих фото и шаблон PowerPoint.</p>
 
-  <figure class="fig fig--wide">
+  <figure class="fig fig--wide" id="golovy">
     <div class="bs">
       <div><span class="bs__label bs__label--do">Было</span><img src="img/anna-bylo.jpg" width="1600" height="900" loading="lazy" data-pin-nopin="true" alt="Образец плохого слайда: три фото в квадратах, зал сплющен, у двух участниц срезаны головы, белая надпись поверх лиц"></div>
       <div><span class="bs__label bs__label--posle">Стало</span><img src="img/anna-stalo.jpg" width="1600" height="900" loading="lazy" data-pin-nopin="true" alt="Те же три фото лентой: снимки целиком, одной высоты, сверху заголовок Живое общение вместо лекции, под каждым кадром подпись"></div>
@@ -122,7 +122,7 @@
     <h2>Шаблон «6 раскладок для слайдов с фото»: скачать бесплатно</h2>
     <figure class="dar__prevyu">
       <img src="img/zagotovka-prevyu.jpg" width="1600" height="1370" loading="lazy" data-pin-description="Бесплатный шаблон PowerPoint: 6 раскладок для слайдов с фото. Одно фото крупно, галерея 2×2, фото и цитата, лента, до и после, портрет и факт." alt="Шесть слайдов шаблона: одно фото крупно, галерея 2×2, фото и цитата, лента, до и после, портрет и факт. Вместо фото серые рамки с надписью «Вставьте фото»">
-      <figcaption>Что внутри файла: шесть слайдов-раскладок с серыми рамками под ваши фото, слайд «как вставить фото» и проверка перед показом.</figcaption>
+      <figcaption>Внутри шесть раскладок с рамками под ваши фото и проверка перед показом.</figcaption>
     </figure>
     <div class="dar__kn">
       <div>
@@ -167,13 +167,18 @@
     <figcaption>Фрагмент настоящего слайда из доклада: одно фото рядом с главной мыслью, текст не на лицах. С разрешения Анны.</figcaption>
   </figure>
   <p><strong>Что получилось.</strong> 17 слайдов со схемами и фотографиями и памятка для зала. Успели к докладу.</p>
-  <blockquote class="quote">«Я обратилась к Алёне, и она мне всё сделала. Спасибо большое! Я под таким впечатлением, это просто счастье, словами не передать. У меня завтра конференция, уровень высокий, а у меня один доклад, и получилось так красиво!»<footer>Анна Комарницькая, психолог</footer></blockquote>
+  <blockquote class="quote">«У меня завтра конференция, уровень высокий, а у меня один доклад, и получилось так красиво!»<footer>Анна Комарницькая, психолог.<span data-esli="prezentaciya-psihologa"> <a href="/razbory/prezentaciya-psihologa/#keys">Весь отзыв и заказ по шагам</a></span></footer></blockquote>
   <p>Анна вернулась к нам уже пятый раз. Как из того же реферата получились схемы, рассказываю в разборе <a href="/razbory/3-oshibki-slaydov/#keys">«3 ошибки, из-за которых слайды трудно читать»</a>.</p>
 
   <section class="order" id="zakaz">
     <h2>Не хотите разбираться сами</h2>
     <p>Фото лежат в телефоне сотнями, а выступать послезавтра? Пришлите их мне: отберу снимки глазом фотографа и разложу по слайдам. Помощник (ИИ) собирает черновик слайдов, а я проверяю каждый своими глазами и довожу до ума.</p>
     <p class="order__price">от 1 500 ₽ <small>презентация до 10 слайдов</small></p>
+    <div class="order__kn">
+      <a class="btn" id="max-btn" href="https://max.ru/se14170446_1_bot?start=pin_foto">Прислать фото в MAX</a>
+      <a class="btn btn--tg" href="https://t.me/alenaprasol?text=Здравствуйте,%20Алёна!%20Нужна%20презентация%20к%20выступлению">Написать Алёне в Telegram</a>
+    </div>
+    <p class="order__small">В MAX отвечает бот-приёмщик, в Telegram я сама.</p>
     <h3 class="order__h">Как это будет</h3>
     <ol class="order__shagi">
       <li>Нажимаете кнопку, открывается чат с ботом-приёмщиком.</li>
@@ -185,11 +190,6 @@
       <p class="order__primer-s" id="primer">Здравствуйте! Выступаю на педсовете в пятницу, 10 минут. Текст и фото пришлю следующими сообщениями.</p>
       <p class="order__primer-n"><button class="order__kop" type="button" data-kop="#primer">Скопировать</button> <span>Можно написать так или просто прислать фото.</span></p>
     </div>
-    <div class="order__kn">
-      <a class="btn" id="max-btn" href="https://max.ru/se14170446_1_bot?start=pin_foto">Прислать фото в MAX</a>
-      <a class="btn btn--tg" href="https://t.me/alenaprasol?text=Здравствуйте,%20Алёна!%20Нужна%20презентация%20к%20выступлению">Написать Алёне в Telegram</a>
-    </div>
-    <p class="order__small">В MAX отвечает бот-приёмщик, в Telegram я сама.</p>
   </section>
 
   <nav class="eshche" aria-labelledby="eshche-h">
@@ -220,11 +220,11 @@
     <p><strong>Алёна Прасолова.</strong> Фотограф, собираю презентации к выступлениям для педагогов, психологов, мастеров и малого бизнеса.</p>
   </div>
 
-  <p class="st__meta" style="margin-top:40px">Алёна Прасолова. Работы показаны с разрешения заказчиков. Учебные образцы помечены.</p>
+  <p class="st__meta" style="margin-top:24px">Работы показаны с разрешения заказчиков. Учебные образцы помечены.</p>
 </main>
 <script>
 /* какой пин привёл: utm_content из адреса дописываем к метке бота (ничего не сохраняем и никуда не отправляем) */
-(function(){try{var c=new URLSearchParams(location.search).get("utm_content");if(!c)return;c=c.toLowerCase().replace(/[^a-z0-9]/g,"_").slice(0,24);var a=document.getElementById("max-btn");if(a&&c)a.href="https://max.ru/se14170446_1_bot?start=pin_foto_"+c;}catch(e){}})();
+(function(){try{var c=new URLSearchParams(location.search).get("utm_content");if(!c)return;c=c.toLowerCase().replace(/[^a-z0-9]/g,"_").slice(0,18);var a=document.getElementById("max-btn");if(a&&c)a.href="https://max.ru/se14170446_1_bot?start=pin_foto_"+c;}catch(e){}})();
 </script>
 
 <footer class="foot">
