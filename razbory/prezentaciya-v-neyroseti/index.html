@@ -30,15 +30,15 @@
 .kratko li{counter-increment:k;position:relative;padding-left:38px;margin:0 0 8px;line-height:1.45}
 .kratko li::before{content:counter(k);position:absolute;left:0;top:.1em;width:26px;height:26px;display:flex;align-items:center;justify-content:center;background:var(--ink);color:var(--bg);font-size:15px;font-weight:700}
 .proba{border:2px solid var(--ink);padding:18px clamp(18px,4vw,28px);margin:24px 0 8px}
-.proba b{display:block;font-size:14px;letter-spacing:.12em;text-transform:uppercase;color:var(--accent-t);margin-bottom:6px}
+.proba b{display:block;font-size:15px;letter-spacing:.12em;text-transform:uppercase;color:var(--accent-t);margin-bottom:6px}
 .proba p{margin:0}
 .st h2+.fig{margin-top:20px}
 .zapros{margin:20px 0 8px;background:var(--bg)}
 .zapros__h{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:center;gap:10px 16px;padding:14px clamp(14px,3vw,22px);border-bottom:1px solid var(--surface-2)}
-.zapros__h p{margin:0;font-size:16px;line-height:1.45;flex:1 1 260px}
-.zapros pre{margin:0;padding:16px clamp(14px,3vw,22px) 20px;white-space:pre-wrap;overflow-wrap:anywhere;font:16px/1.55 "Manrope",system-ui,sans-serif;color:var(--ink)}
+.zapros__h p{margin:0;font-size:18px;line-height:1.4;flex:1 1 260px}
+.zapros pre{margin:0;padding:16px clamp(14px,3vw,22px) 20px;white-space:pre-wrap;overflow-wrap:anywhere;font:18px/1.5 "Manrope",system-ui,sans-serif;color:var(--ink)}
 /* «Скопировать» чёрная, как кнопки подарка: красный остаётся только у заказа */
-.kop{min-height:48px;padding:0 22px;font:600 16px "Manrope",sans-serif;border:0;background:var(--ink);color:var(--bg);cursor:pointer;flex:0 0 auto}
+.kop{min-height:48px;padding:0 22px;font:600 18px "Manrope",sans-serif;border:0;background:var(--ink);color:var(--bg);cursor:pointer;flex:0 0 auto}
 .kop:hover{background:#000}
 .kop.ok{background:#E9A48F;color:var(--ink)}
 .darm .kn.ok{background:#E9A48F;border-color:#E9A48F;color:var(--ink)}
@@ -209,7 +209,7 @@
         <a class="kn kn--kontur" href="fayly/zaprosy-dlya-prezentacii.txt" download data-dar="txt">Скачать оба запроса бесплатно</a>
         <p class="dar__pod">Текстовый файл, 4 КБ. Откроется на телефоне и на компьютере, запросы подходят для ChatGPT и Claude.</p>
       </div>
-      <p class="dar__posle" hidden>Файл скачивается, ищите его в загрузках телефона. Не скачался? Откройте эту страницу в обычном браузере: меню с тремя точками, пункт «Открыть в браузере».</p>
+      <p class="dar__posle" hidden>Файл скачивается, ищите его в загрузках. Не скачался? Откройте эту страницу в обычном браузере: меню с тремя точками, пункт «Открыть в браузере».</p>
       <button class="dar__sebe" type="button" hidden>Отправить себе, чтобы открыть на компьютере</button>
     </div>
     <p class="dar__bez">Без регистрации и почты.</p>

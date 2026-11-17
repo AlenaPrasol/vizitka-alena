@@ -1,8 +1,11 @@
-/* Общий скрипт разборов, без библиотек. Ничего не сохраняет и никуда не отправляет.
+/* Общий скрипт разборов, без библиотек. Никуда ничего не отправляет; в памяти вкладки (sessionStorage)
+   держит только одно: у какой кнопки подарка открыта подсказка, чтобы она осталась после возврата из PDF.
    1. Липкая строка с названием статьи (строится из <h1 data-korotko="Короткое название">).
-   2. Подсказка после нажатия на кнопку подарка: <a data-dar> внутри .dar или .darm открывает .dar__posle.
+   2. Подсказка у кнопки подарка: <a data-dar> внутри .dar или .darm открывает .dar__posle сразу при нажатии;
+      текст подсказки один на все статьи (POSLE): для PDF «открывается в этой же вкладке», для остальных «скачивается».
    3. Кнопка «Скопировать»: <button data-kop="#id-текста">.
    4. «Отправить себе»: <button class="dar__sebe" hidden>, показывается, если есть navigator.share или буфер обмена.
+   5. Увеличение картинки по нажатию: <a class="uvel" href="полная картинка"> открывается в окне поверх страницы.
    Метку бота из utm_content дописывает встроенный скрипт статьи, здесь этого нет. */
 (function () {
   "use strict";
@@ -62,15 +65,73 @@
     }).observe(h1);
   }
 
+  // подсказка у кнопок подарка. Текст один на все статьи и зависит от того, что делает кнопка:
+  // PDF открывается в этой же вкладке (у ссылки нет download), остальные файлы скачиваются
+  var POSLE = {
+    pdf: "PDF открывается в этой же вкладке, вернуться к статье: кнопка «Назад». Если файл скачался, он в загрузках. Ничего не произошло? Откройте эту страницу в обычном браузере: меню с тремя точками, пункт «Открыть в браузере».",
+    fayl: "Файл скачивается, ищите его в загрузках. Не скачался? Откройте эту страницу в обычном браузере: меню с тремя точками, пункт «Открыть в браузере»."
+  };
+  var KLYUCH = "razbor-podskazka:" + location.pathname;
+
+  function pokazat(a) {
+    var blok = a.closest(".dar, .darm");
+    var p = blok && blok.querySelector(".dar__posle");
+    if (!p) return;
+    var vid = a.hasAttribute("download") ? "fayl" : (a.getAttribute("data-dar") === "pdf" ? "pdf" : "fayl");
+    p.textContent = POSLE[vid];
+    p.hidden = false;
+  }
+
   function podarki() {
+    var vse = [].slice.call(document.querySelectorAll("a[data-dar]"));
     document.addEventListener("click", function (e) {
       var a = e.target.closest && e.target.closest("a[data-dar]");
       if (!a) return;
-      var blok = a.closest(".dar, .darm");
-      var p = blok && blok.querySelector(".dar__posle");
-      if (p) p.hidden = false;
+      // подсказка появляется сразу, до ухода на файл
+      pokazat(a);
+      // и запоминается до закрытия вкладки: если браузер по кнопке «Назад» загрузит страницу заново, подсказка вернётся
+      try { sessionStorage.setItem(KLYUCH, String(vse.indexOf(a))); } catch (err) {}
     });
-    // вернулись кнопкой «назад» из открытого PDF: подсказка остаётся на месте (страница из кэша), делать ничего не нужно
+    try {
+      var n = sessionStorage.getItem(KLYUCH);
+      if (n !== null && vse[+n]) pokazat(vse[+n]);
+    } catch (err) {}
+  }
+
+  // увеличение картинки по нажатию: <a class="uvel" href="полная картинка">
+  function uvelichenie() {
+    document.addEventListener("click", function (e) {
+      var a = e.target.closest && e.target.closest("a.uvel");
+      if (!a || e.metaKey || e.ctrlKey || e.shiftKey) return;
+      e.preventDefault();
+      var mal = a.querySelector("img");
+      var o = document.createElement("div");
+      o.className = "uvel-okno";
+      o.setAttribute("role", "dialog"); o.setAttribute("aria-modal", "true"); o.setAttribute("aria-label", "Картинка крупно");
+      var v = document.createElement("div"); v.className = "uvel-okno__v";
+      var t = document.createElement("span"); t.textContent = "Двигайте картинку пальцем";
+      var x = document.createElement("button"); x.type = "button"; x.className = "uvel-okno__x"; x.textContent = "Закрыть";
+      v.appendChild(t); v.appendChild(x);
+      var pole = document.createElement("div"); pole.className = "uvel-okno__p";
+      var im = document.createElement("img");
+      im.src = a.getAttribute("href"); im.alt = mal ? mal.alt : "";
+      if (mal && mal.getAttribute("width")) { im.width = mal.getAttribute("width"); im.height = mal.getAttribute("height"); }
+      pole.appendChild(im);
+      o.appendChild(v); o.appendChild(pole);
+      function zakryt() {
+        o.remove(); document.body.classList.remove("uvel-otkryto");
+        document.removeEventListener("keydown", klav);
+        a.focus({ preventScroll: true });
+      }
+      function klav(ev) { if (ev.key === "Escape") zakryt(); }
+      x.addEventListener("click", zakryt);
+      pole.addEventListener("click", function (ev) { if (ev.target === pole) zakryt(); });
+      document.addEventListener("keydown", klav);
+      document.body.appendChild(o); document.body.classList.add("uvel-otkryto");
+      // на компьютере картинка помещается целиком, двигать нечего
+      if (pole.scrollWidth <= pole.clientWidth + 2) t.textContent = "";
+      x.focus();
+    });
   }
 
   function kopii() {
@@ -116,6 +177,6 @@
     });
   }
 
-  function start() { lipkaya(); podarki(); kopii(); sebe(); }
+  function start() { lipkaya(); podarki(); kopii(); sebe(); uvelichenie(); }
   if (document.readyState === "loading") document.addEventListener("DOMContentLoaded", start); else start();
 })();

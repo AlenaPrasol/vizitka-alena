@@ -30,7 +30,7 @@
 .korotko li{position:relative;padding-left:26px}
 .korotko li::before{content:"";position:absolute;left:2px;top:.62em;width:10px;height:10px;background:var(--accent)}
 .opyt{background:var(--paper);border:2px dashed var(--ink);padding:24px clamp(18px,4vw,32px);margin:32px 0}
-.opyt__t{font-size:14px;letter-spacing:.08em;text-transform:uppercase;font-weight:700;color:var(--accent-t);margin:0 0 8px}
+.opyt__t{font-size:15px;letter-spacing:.08em;text-transform:uppercase;font-weight:700;color:var(--accent-t);margin:0 0 8px}
 .opyt p:last-child{margin-bottom:0}
 .zitata-start{font-family:var(--serif);font-size:clamp(1.25rem,1.1rem + .6vw,1.5rem);line-height:1.45;margin:8px 0 12px}
 .shagi li{margin-bottom:12px}
@@ -41,11 +41,13 @@
 .check--skelet{margin-top:24px}
 .check--skelet h3{font-family:var(--serif);font-weight:400;font-size:1.35rem;line-height:1.25;margin:0 0 12px}
 .check--skelet .dl{display:block}
-.check--skelet .dl__a{display:flex;justify-content:center;width:100%;min-height:52px;font-size:17px;margin-bottom:10px}
+.check--skelet .dl__a{display:flex;justify-content:center;width:100%;min-height:52px;font-size:18px;margin-bottom:10px}
+/* телефон: блок той же ширины, что блоки подарка, кнопка 334 px как остальные */
+@media (max-width:620px){.check--skelet{padding:22px 18px;margin-inline:calc(var(--margin)/-2)}}
 .check--skelet .dl span{display:block;font-size:16px;line-height:1.4}
 .check ol.nomera{counter-reset:s;padding:0}
 .check ol.nomera li{counter-increment:s;padding-left:46px;margin-bottom:12px}
-.check ol.nomera li::before{content:counter(s);border:0;background:var(--ink);color:var(--bg);width:30px;height:30px;font-size:14px;font-weight:700;display:flex;align-items:center;justify-content:center;top:.05em}
+.check ol.nomera li::before{content:counter(s);border:0;background:var(--ink);color:var(--bg);width:30px;height:30px;font-size:15px;font-weight:700;display:flex;align-items:center;justify-content:center;top:.05em}
 .vopros{font-family:var(--serif);font-size:clamp(1.25rem,1.1rem + .6vw,1.5rem);line-height:1.45;margin:48px 0 0;padding-top:28px;border-top:1px solid var(--surface-2)}
 .avtor{display:flex;gap:16px;align-items:flex-start;margin:48px 0 0;padding:20px;background:var(--surface)}
 .avtor svg{flex:0 0 44px;width:44px;height:44px}
@@ -74,7 +76,7 @@
   <figure class="fig fig--wide fig--pervaya">
     <div class="bs bs--ref">
       <div><span class="bs__label bs__label--do">Было</span><img src="img/anna-referat-napravleniya.jpg" width="864" height="340" data-pin-description="Презентация для психолога к конференции: перечень из реферата превращаем в слайд-схему. Было и стало на настоящем докладе." alt="Фрагмент реферата: перечень шести направлений столбиком, от социально-правовых до социально-трудовых, пункты выделены маркером"></div>
-      <div><span class="bs__label bs__label--posle">Стало</span><img src="img/anna-slajd-08.jpg" width="1920" height="990" data-pin-description="Слайд из доклада психолога: перечень из реферата стал колесом из шести направлений вокруг человека и семьи." alt="Слайд «Шесть направлений реабилитации, одно колесо»: шесть секторов вокруг слов «Человек и семья», справа каждое направление одной строкой"></div>
+      <div><a class="uvel" href="img/anna-slajd-08.jpg"><span class="bs__label bs__label--posle">Стало<span class="uvel__p">Нажмите, чтобы увеличить</span></span><img src="img/anna-slajd-08.jpg" width="1920" height="990" data-pin-description="Слайд из доклада психолога: перечень из реферата стал колесом из шести направлений вокруг человека и семьи." alt="Слайд «Шесть направлений реабилитации, одно колесо»: шесть секторов вокруг слов «Человек и семья», справа каждое направление одной строкой"></a></div>
     </div>
     <figcaption>Фрагмент реферата и слайд из него: перечень шести направлений стал колесом, в центре человек и семья. Показано с разрешения Анны.</figcaption>
   </figure>
@@ -90,15 +92,6 @@
   <p>Так написала мне Анна Комарницькая, психолог (гештальт-терапевт) и преподаватель. Через сутки ей выступать на XIV Международном симпозиуме медицинских антропологов в Москве с докладом о возвращении людей домой и в обычную жизнь.</p>
   <p>Если вы тоже обычно рассказываете, а показать нечего, этот разбор для вас. Я Алёна Прасолова, собираю презентации к выступлениям для психологов, педагогов и методистов.</p>
 
-  <h2>Коротко</h2>
-  <ul class="korotko">
-    <li>Ищите в тексте путь: этапы, историю, порядок помощи. Это каркас.</li>
-    <li>Черновик показывайте сразу, недостающее спрашивайте списком.</li>
-    <li>Цифры только из вашего текста, с оговорками.</li>
-    <li>Людей на фото крупно, памятку залу в руки.</li>
-  </ul>
-  <a class="st__zakaz" href="#zakaz">Некогда? Пришлите текст доклада</a>
-
   <aside class="darm" aria-label="Подарок к статье">
     <img class="darm__img" src="img/skelet-prevyu-m.jpg" width="400" height="300" loading="lazy" alt="">
     <p class="darm__rub">Бесплатно</p>
@@ -107,8 +100,17 @@
       <a class="kn kn--glav" href="fayly/skelet-doklada-15-slaydov.pdf" data-dar="pdf">Открыть PDF</a>
       <a class="darm__esche" href="#skelet">Подробнее ниже</a>
     </div>
-    <p class="dar__posle" hidden>Файл открывается или скачивается, ищите его в загрузках телефона. Не открылся? Откройте эту страницу в обычном браузере: меню с тремя точками, пункт «Открыть в браузере».</p>
+    <p class="dar__posle" hidden>PDF открывается в этой же вкладке, вернуться к статье: кнопка «Назад». Если файл скачался, он в загрузках. Ничего не произошло? Откройте эту страницу в обычном браузере: меню с тремя точками, пункт «Открыть в браузере».</p>
   </aside>
+
+  <h2>Коротко</h2>
+  <ul class="korotko">
+    <li>Ищите в тексте путь: этапы, историю, порядок помощи. Это каркас.</li>
+    <li>Черновик показывайте сразу, недостающее спрашивайте списком.</li>
+    <li>Цифры только из вашего текста, с оговорками.</li>
+    <li>Людей на фото крупно, памятку залу в руки.</li>
+  </ul>
+  <a class="st__zakaz" href="#zakaz">Некогда? Пришлите текст доклада</a>
 
   <div class="opyt">
     <p class="opyt__t">Попробуйте за 10 секунд</p>
@@ -175,7 +177,7 @@
         <a class="kn kn--kontur" href="fayly/skelet-doklada-15-slaydov.pptx" download data-dar="pptx">Скачать для PowerPoint</a>
         <p class="dar__pod">Файл .pptx, 80 КБ, для компьютера. С телефона откройте в Google Slides, на Маке в Keynote.</p>
       </div>
-      <p class="dar__posle" hidden>Файл скачивается, ищите его в загрузках телефона. Не скачался? Откройте эту страницу в обычном браузере: меню с тремя точками, пункт «Открыть в браузере».</p>
+      <p class="dar__posle" hidden>PDF открывается в этой же вкладке, вернуться к статье: кнопка «Назад». Если файл скачался, он в загрузках. Ничего не произошло? Откройте эту страницу в обычном браузере: меню с тремя точками, пункт «Открыть в браузере».</p>
       <button class="dar__sebe" type="button" hidden>Отправить себе, чтобы открыть на компьютере</button>
     </div>
     <p class="dar__bez">Без регистрации и почты.</p>
@@ -217,7 +219,7 @@
         <a class="kn kn--glav" href="fayly/pamyatka-dlya-zala-a5.pdf" data-dar="pdf">Скачать образец памятки бесплатно</a>
         <p class="dar__pod">PDF, две стороны A5, 196 КБ. Откроется на телефоне, можно распечатать.</p>
       </div>
-      <p class="dar__posle" hidden>Файл открывается или скачивается, ищите его в загрузках телефона. Не открылся? Откройте эту страницу в обычном браузере: меню с тремя точками, пункт «Открыть в браузере».</p>
+      <p class="dar__posle" hidden>PDF открывается в этой же вкладке, вернуться к статье: кнопка «Назад». Если файл скачался, он в загрузках. Ничего не произошло? Откройте эту страницу в обычном браузере: меню с тремя точками, пункт «Открыть в браузере».</p>
       <button class="dar__sebe" type="button" hidden>Отправить себе, чтобы открыть на компьютере</button>
     </div>
     <p class="dar__bez">Без регистрации и почты.</p>

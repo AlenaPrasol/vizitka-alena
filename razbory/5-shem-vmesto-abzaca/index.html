@@ -25,15 +25,16 @@
 <style>
 /* только для этой статьи; всё общее (шапка, первый экран, подарок, заказ, «Ещё разборы») живёт в razbor.css */
 .ic{width:40px;height:27px;flex:none;color:var(--ink);--a:var(--accent)}
-.podskazki{width:100%;border-collapse:collapse;margin:8px 0 18px;font-size:16px;line-height:1.4}
-.podskazki th{text-align:left;font-size:14px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);font-weight:600;padding:0 10px 8px 0;border-bottom:2px solid var(--ink)}
+.podskazki{width:100%;border-collapse:collapse;margin:8px 0 18px;font-size:18px;line-height:1.35}
+.podskazki th{text-align:left;font-size:15px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);font-weight:600;padding:0 10px 8px 0;border-bottom:2px solid var(--ink)}
 .podskazki td{padding:10px 10px 10px 0;border-bottom:1px solid var(--surface-2);vertical-align:middle}
 .podskazki td:last-child{padding-right:0;white-space:nowrap;font-weight:700}
 .podskazki td:last-child span{display:inline-flex;align-items:center;gap:10px}
 .podskazki .ic{width:36px;height:24px}
+/* узкий телефон: таблица плотнее, чтобы пять строк были видны над плашкой при входе по якорю #vybor */
+@media (max-width:380px){.podskazki{line-height:1.25}.podskazki td{padding:7px 8px 7px 0}}
 .vopros{border-left:3px solid var(--accent);padding:4px 0 4px 20px;margin:48px 0 0}
 .vopros h2{margin:0 0 10px}
-@media (max-width:760px){.podskazki{font-size:16px}}
 </style>
 </head>
 <body>
@@ -89,6 +90,16 @@
 
   <p>«Тут всё важно, ничего не выкинешь». Так на слайд и попадает абзац. А зал, увидев абзац, начинает читать и перестаёт слушать.</p>
   <p>Я Алёна Прасолова, собираю презентации к выступлениям для педагогов, психологов, мастеров и малого бизнеса. Ниже пять схем: две на настоящих слайдах из одного доклада, три на учебных образцах. И шаблон PowerPoint под ваш текст.</p>
+  <aside class="darm" aria-label="Подарок к статье">
+    <img class="darm__img" src="img/zagotovka-prevyu-m.jpg" width="400" height="300" loading="lazy" alt="">
+    <p class="darm__rub">Бесплатно</p>
+    <p class="darm__t">Шаблон PowerPoint «5&nbsp;схем вместо абзаца», 7&nbsp;слайдов</p>
+    <div class="darm__kn">
+      <a class="kn kn--glav" href="fayly/5-shem-vmesto-abzaca.pdf" data-dar="pdf">Открыть PDF</a>
+      <a class="darm__esche" href="#zagotovka">Подробнее ниже</a>
+    </div>
+    <p class="dar__posle" hidden>PDF открывается в этой же вкладке, вернуться к статье: кнопка «Назад». Если файл скачался, он в загрузках. Ничего не произошло? Откройте эту страницу в обычном браузере: меню с тремя точками, пункт «Открыть в браузере».</p>
+  </aside>
   <a class="st__zakaz" href="#zakaz">Некогда разбираться? Пришлите абзац</a>
 
   <h2 id="vybor">Какую схему выбрать: попробуйте за 10 секунд</h2>
@@ -104,17 +115,6 @@
     </tbody>
   </table>
   <p>Ничего не нашлось? Значит, в абзаце пояснение для вас, а не мысль для зала. Оставьте на слайде заголовок-вывод, остальное в заметки.</p>
-
-  <aside class="darm" aria-label="Подарок к статье">
-    <img class="darm__img" src="img/zagotovka-prevyu-m.jpg" width="400" height="300" loading="lazy" alt="">
-    <p class="darm__rub">Бесплатно</p>
-    <p class="darm__t">Шаблон PowerPoint «5&nbsp;схем вместо абзаца», 7&nbsp;слайдов</p>
-    <div class="darm__kn">
-      <a class="kn kn--glav" href="fayly/5-shem-vmesto-abzaca.pdf" data-dar="pdf">Открыть PDF</a>
-      <a class="darm__esche" href="#zagotovka">Подробнее ниже</a>
-    </div>
-    <p class="dar__posle" hidden>Файл открывается или скачивается, ищите его в загрузках телефона. Не открылся? Откройте эту страницу в обычном браузере: меню с тремя точками, пункт «Открыть в браузере».</p>
-  </aside>
 
   <h2><span class="num">1</span>Карточки: пункты равны</h2>
   <p>Список читают сверху вниз, как текст. Карточки глаз схватывает сразу: мыслей три, и они равны.</p>
@@ -171,7 +171,7 @@
         <a class="kn kn--kontur" href="fayly/5-shem-vmesto-abzaca.pptx" download data-dar="pptx">Скачать для PowerPoint</a>
         <p class="dar__pod">Файл .pptx, 53 КБ, для компьютера. С телефона откройте в Google Slides, на Маке в Keynote.</p>
       </div>
-      <p class="dar__posle" hidden>Файл скачивается, ищите его в загрузках телефона. Не скачался? Откройте эту страницу в обычном браузере: меню с тремя точками, пункт «Открыть в браузере».</p>
+      <p class="dar__posle" hidden>PDF открывается в этой же вкладке, вернуться к статье: кнопка «Назад». Если файл скачался, он в загрузках. Ничего не произошло? Откройте эту страницу в обычном браузере: меню с тремя точками, пункт «Открыть в браузере».</p>
       <button class="dar__sebe" type="button" hidden>Отправить себе, чтобы открыть на компьютере</button>
     </div>
     <p class="dar__bez">Без регистрации и почты.</p>
