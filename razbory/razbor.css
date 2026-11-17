@@ -96,3 +96,14 @@ a{color:inherit}
 .dl__a:hover{background:#000}
 .dl span{font-size:14px;color:var(--muted)}
 .most{margin:8px 0 24px;padding:16px 20px;background:var(--surface);border-left:3px solid var(--accent)}
+
+/* плашка согласия на счётчик */
+.soglasie{position:fixed;left:12px;right:12px;bottom:12px;z-index:50;max-width:720px;margin:0 auto;background:var(--ink);color:var(--bg);padding:16px 18px;display:flex;flex-wrap:wrap;gap:12px 18px;align-items:center;font-size:15px;line-height:1.45;box-shadow:0 10px 30px rgba(0,0,0,.25)}
+.soglasie p{margin:0;flex:1 1 320px}
+.soglasie a{color:var(--bg)}
+.soglasie__k{display:flex;gap:10px}
+.soglasie button{min-height:44px;padding:0 18px;font:600 15px "Manrope",sans-serif;border:0;cursor:pointer}
+.soglasie__da{background:var(--accent);color:var(--on-accent)}
+.soglasie__net{background:transparent;color:var(--bg);border:1px solid var(--bg)!important}
+.vybor{display:flex;flex-wrap:wrap;gap:10px;margin:8px 0 6px}
+.vybor button{min-height:44px;padding:0 18px;font:600 15px "Manrope",sans-serif;border:1px solid var(--ink);background:transparent;cursor:pointer}
