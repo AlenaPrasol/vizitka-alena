@@ -230,9 +230,9 @@
     <p class="order__price">от 1 500 ₽ <small>презентация до 10 слайдов</small></p>
     <div class="order__kn">
       <a class="btn" id="max-btn" href="https://max.ru/se14170446_1_bot?start=pin_neyroset">Написать боту в MAX</a>
-      <a class="btn btn--tg" href="https://t.me/alenaprasol?text=Здравствуйте,%20Алёна!%20Нужна%20презентация%20к%20выступлению">Написать Алёне в Telegram</a>
+      <a class="btn btn--tg" id="tg-btn" href="https://t.me/alena_pomoshchnik_bot?start=pin_neyroset">Написать боту в Telegram</a>
     </div>
-    <p class="order__small">В MAX отвечает бот-приёмщик, в Telegram я сама.</p>
+    <p class="order__small">В MAX и в Telegram отвечает бот-приёмщик. Слайды собираю и проверяю я сама.</p>
     <h3 class="order__h">Как это будет</h3>
     <ol class="order__shagi">
       <li>Нажимаете кнопку, открывается чат с ботом-приёмщиком.</li>
@@ -269,7 +269,7 @@
 </main>
 <script>
 /* какой пин привёл: utm_content из адреса дописываем к метке бота (ничего не сохраняем и никуда не отправляем) */
-(function(){try{var c=new URLSearchParams(location.search).get("utm_content");if(!c)return;c=c.toLowerCase().replace(/[^a-z0-9]/g,"_").slice(0,18);var a=document.getElementById("max-btn");if(a&&c)a.href="https://max.ru/se14170446_1_bot?start=pin_neyroset_"+c;}catch(e){}})();
+(function(){try{var c=new URLSearchParams(location.search).get("utm_content");if(!c)return;c=c.toLowerCase().replace(/[^a-z0-9]/g,"_").slice(0,18);var a=document.getElementById("max-btn");if(a&&c)a.href="https://max.ru/se14170446_1_bot?start=pin_neyroset_"+c;var t=document.getElementById("tg-btn");if(t&&c)t.href="https://t.me/alena_pomoshchnik_bot?start=pin_neyroset_"+c;}catch(e){}})();
 /* «Скопировать»: кладёт текст запроса в буфер обмена */
 (function(){
   function zapasnoy(t){var a=document.createElement("textarea");a.value=t;a.setAttribute("readonly","");a.style.position="fixed";a.style.top="-1000px";document.body.appendChild(a);a.select();a.setSelectionRange(0,t.length);var ok=false;try{ok=document.execCommand("copy");}catch(e){}document.body.removeChild(a);return ok;}
