@@ -335,3 +335,14 @@ body.est-soglasie{padding-bottom:calc(var(--soglasie-v,72px) + 24px)}
 /* телефон: картинка выше экрана по ширине, её двигают пальцем влево и вправо */
 @media (max-width:760px){.uvel-okno__p img{max-width:none;max-height:none;height:min(62vh,100%);width:auto}}
 body.uvel-otkryto{overflow:hidden}
+
+/* ===== 26.11.2026: вход по якорю с пина. Разметку строит razbor.js (раздел 6) из data- атрибутов <main> ===== */
+/* строка «где я» под заголовком раздела: неброская, одна-две строки */
+.st .gde-ya{margin:0 0 14px;font-size:16px;line-height:1.45;color:var(--muted)}
+.st .gde-ya a{color:var(--ink);font-weight:600;text-decoration:underline;text-decoration-thickness:1px;text-underline-offset:4px}
+.st .gde-ya a:not([class]){padding:12px 0}
+.st li>.gde-ya{display:block;margin:6px 0 0}
+/* ссылка на подарок в липкой строке, вплотную к «Сделать за меня» */
+.lipkaya__dar{flex:none;margin-left:auto;font-weight:600;text-decoration:none}
+.lipkaya__dar::before{content:"↓";margin-right:6px;color:var(--accent);font-weight:700}
+.lipkaya__dar:hover{text-decoration:underline;text-decoration-thickness:1px;text-underline-offset:5px}

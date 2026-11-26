@@ -180,3 +180,59 @@
   function start() { lipkaya(); podarki(); kopii(); sebe(); uvelichenie(); }
   if (document.readyState === "loading") document.addEventListener("DOMContentLoaded", start); else start();
 })();
+
+/* 6. С 26.11.2026. Пин ведёт не на начало статьи, а в раздел по якорю. Для такого входа:
+   под заголовком раздела строка «Вы в разборе «…». <Подарок>, бесплатно ↓» (↑, если подарок выше) со ссылкой на подарок;
+   в липкой строке (всегда) ссылка на подарок рядом с «Сделать за меня».
+   Данные берутся с <main>: data-razbor="Название статьи", data-podarok="Что за подарок",
+   data-podarok-korotko="Одно слово для липкой строки", data-podarok-yakor="id блока подарка".
+   Нет data-podarok-yakor или такого id на странице: ничего не добавляется. Никуда ничего не отправляет. */
+(function () {
+  "use strict";
+  function gdeYa() {
+    var m = document.querySelector("main[data-podarok-yakor]");
+    if (!m) return;
+    var yak = m.getAttribute("data-podarok-yakor");
+    var dar = yak && document.getElementById(yak);
+    if (!dar) return;
+    var podarok = m.getAttribute("data-podarok") || "";
+    var korotko = m.getAttribute("data-podarok-korotko") || podarok;
+    var razbor = m.getAttribute("data-razbor") || "";
+
+    // ссылка на подарок в липкой строке, перед «Сделать за меня»
+    var l = document.querySelector(".lipkaya");
+    if (l && korotko && !l.querySelector(".lipkaya__dar")) {
+      var a = document.createElement("a");
+      a.className = "lipkaya__dar"; a.href = "#" + yak; a.textContent = korotko;
+      if (podarok) a.setAttribute("aria-label", podarok + ", бесплатно");
+      l.insertBefore(a, l.querySelector(".lipkaya__z"));
+    }
+
+    // строка «где я»: только если адрес с якорем и якорь в середине статьи
+    var h = location.hash.slice(1);
+    if (!h || !podarok) return;
+    try { h = decodeURIComponent(h); } catch (e) {}
+    var cel = document.getElementById(h);
+    if (!cel || !m.contains(cel) || cel === m) return;
+    // сам подарок, первый экран, заказ и блоки в конце: строка не нужна
+    if (dar.contains(cel) || cel.closest(".dar, .darm, .otvet, .order, .eshche, .faq")) return;
+    // якорь выше карточки подарка в начале статьи: человек и так видит полосу подарка
+    var nachalo = m.querySelector(".darm") || m.querySelector(".st__dar");
+    if (nachalo && (cel.compareDocumentPosition(nachalo) & 4)) return;
+
+    var vLi = cel.tagName === "LI";
+    var s = document.createElement(vLi ? "span" : "p");
+    s.className = "gde-ya";
+    if (razbor) s.appendChild(document.createTextNode("Вы в разборе «" + razbor + "». "));
+    // стрелка туда, где подарок: ниже раздела или уже выше; перед стрелкой неразрывный пробел
+    var vyshe = cel.compareDocumentPosition(dar) & 2;
+    var ss = document.createElement("a");
+    ss.href = "#" + yak; ss.textContent = podarok + ", бесплатно\u00a0" + (vyshe ? "↑" : "↓");
+    s.appendChild(ss);
+    if (vLi) { cel.appendChild(s); return; }
+    // под заголовком раздела; если якорь на блоке, под его первым заголовком; если на абзаце, под абзацем
+    var zag = /^(H2|H3|P)$/.test(cel.tagName) ? cel : (cel.querySelector("h2, h3") || cel);
+    zag.insertAdjacentElement("afterend", s);
+  }
+  if (document.readyState === "loading") document.addEventListener("DOMContentLoaded", gdeYa); else gdeYa();
+})();

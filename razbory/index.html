@@ -9,6 +9,24 @@
 <link rel="canonical" href="https://alena.svetopis.art/razbory/">
 <link rel="icon" href="/assets/znak.svg" type="image/svg+xml">
 <link rel="stylesheet" href="/razbory/razbor.css">
+<style>
+/* только для этой страницы: блок «Шаблоны бесплатно» с прямыми кнопками (#shablony, на него ведёт пин «4 шаблона») */
+.st--spisok>.st__dar{max-width:var(--text);margin-top:-12px;margin-bottom:32px}
+.shablony{margin:0 0 72px}
+.st .shablony h2{margin-top:0}
+.st .shablony__lead{max-width:var(--text);margin:0 0 24px}
+.st .shablony h3{font-size:19px;margin:36px 0 14px}
+.shab-sp{list-style:none;padding:0!important;margin:0!important;display:grid;grid-template-columns:1fr 1fr;gap:20px}
+.shab-sp li{margin:0;min-width:0;background:var(--paper);padding:22px 20px 14px;display:flex;flex-direction:column}
+.st .shab__t{font-family:var(--serif);font-size:23px;line-height:1.2;margin:0 0 8px;text-wrap:balance}
+.st .shab__o{font-size:16px;line-height:1.45;color:var(--muted);margin:0 0 16px}
+.shab__kn{display:grid;gap:10px;margin-top:auto}
+.shab__kn .kn{font-size:17px}
+.shab__razbor{align-self:flex-start;display:inline-flex;align-items:center;min-height:48px;margin-top:4px;font-size:16px;font-weight:600;color:var(--ink);text-decoration:underline;text-decoration-thickness:1px;text-underline-offset:4px}
+@media (min-width:761px){.shab__kn{grid-template-columns:1fr 1fr}.shab__kn .kn:only-child{grid-column:1/-1}}
+@media (max-width:760px){.shab-sp{grid-template-columns:1fr;gap:14px}}
+@media (max-width:620px){.shab-sp{gap:14px}.shab-sp li{padding:18px 18px 10px}.st .shab__t{font-size:22px}}
+</style>
 </head>
 <body>
 <header class="top">
@@ -22,6 +40,7 @@
   <p class="st__kicker">Разборы</p>
   <h1>Понятные презентации, афиши и памятки</h1>
   <p class="st__lead">Было и стало на настоящих работах.</p>
+  <a class="st__dar" href="#shablony">4&nbsp;шаблона PowerPoint и чек-листы: скачать бесплатно</a>
   <!-- каждая карточка одной строкой <li>...</li>: скрипт выкладки вырезает строку целиком, если разбор в _koren/ne-vykladyvat.txt -->
   <ul class="spisok">
     <li><a class="kart" href="/razbory/pravila-oformleniya-prezentacii/"><img class="kart__img" src="/razbory/oblozhki/pravila-oformleniya.jpg" srcset="/razbory/oblozhki/pravila-oformleniya-600.jpg 600w, /razbory/oblozhki/pravila-oformleniya.jpg 1200w" sizes="(max-width:760px) 100vw, (max-width:1180px) 60vw, 660px" width="1200" height="800" fetchpriority="high" alt="Обложка разбора: шпаргалка «Правила оформления презентации», 10 правил на одной странице"><span class="kart__t"><span class="kart__rub">Правила <i>· 10 минут</i></span><span class="kart__h" role="heading" aria-level="2">Правила оформления презентации: 10 правил на одной странице</span><span class="kart__polza">Шрифт, размер, цвет, поля, текст и фото: что проверить до выступления.</span><span class="kart__dar">Шпаргалка · PDF</span></span></a></li>
@@ -31,6 +50,25 @@
     <li><a class="kart" href="/razbory/prezentaciya-psihologa/"><img class="kart__img" src="/razbory/oblozhki/prezentaciya-psihologa.jpg" srcset="/razbory/oblozhki/prezentaciya-psihologa-600.jpg 600w, /razbory/oblozhki/prezentaciya-psihologa.jpg 1200w" sizes="(max-width:760px) 100vw, 540px" width="1200" height="800" loading="lazy" alt="Обложка разбора: лист реферата превращается в слайды со схемами"><span class="kart__t"><span class="kart__rub">Кейс <i>· 5 минут</i></span><span class="kart__h" role="heading" aria-level="2">Презентация для психолога к конференции: 17 слайдов из реферата за сутки</span><span class="kart__polza">Настоящий кейс по шагам, скелет доклада и образец памятки для зала.</span><span class="kart__dar">PowerPoint · 15 слайдов и памятка PDF</span></span></a></li>
     <li><a class="kart" href="/razbory/3-oshibki-slaydov/"><img class="kart__img" src="/razbory/oblozhki/3-oshibki-slaydov.jpg" srcset="/razbory/oblozhki/3-oshibki-slaydov-600.jpg 600w, /razbory/oblozhki/3-oshibki-slaydov.jpg 1200w" sizes="(max-width:760px) 100vw, 540px" width="1200" height="800" loading="lazy" alt="Обложка разбора: перечёркнутый слайд с абзацем и тот же смысл схемой из четырёх звеньев, учебный образец"><span class="kart__t"><span class="kart__rub">Ошибки <i>· 6 минут</i></span><span class="kart__h" role="heading" aria-level="2">3 ошибки, из-за которых слайды трудно читать</span><span class="kart__polza">Абзац вместо мысли, заголовок-тема и каша в оформлении. Было и стало.</span><span class="kart__dar">Чек-лист PDF и PowerPoint</span></span></a></li>
   </ul>
+
+  <section class="shablony" id="shablony">
+    <h2>Шаблоны PowerPoint бесплатно: 4&nbsp;шаблона к докладу</h2>
+    <p class="shablony__lead">Без регистрации и почты. PDF откроется прямо на телефоне. Файл PowerPoint для компьютера, с телефона его можно открыть в Google Slides.</p>
+    <!-- каждая карточка одной строкой <li>...</li> со ссылкой на свой разбор: скрипт выкладки вырежет строку, если разбор в _koren/ne-vykladyvat.txt -->
+    <ul class="shab-sp">
+    <li><p class="shab__t">Шаблон слайдов «5&nbsp;схем вместо абзаца»</p><p class="shab__o">Карточки, лента, колесо, цепочка и таблица. 7 слайдов с подсказками, .pptx 53 КБ.</p><span class="shab__kn"><a class="kn kn--glav" href="/razbory/5-shem-vmesto-abzaca/fayly/5-shem-vmesto-abzaca.pdf" data-dar="pdf">Открыть PDF</a><a class="kn kn--kontur" href="/razbory/5-shem-vmesto-abzaca/fayly/5-shem-vmesto-abzaca.pptx" download data-dar="pptx">Скачать для PowerPoint</a></span><a class="shab__razbor" href="/razbory/5-shem-vmesto-abzaca/">Разбор: как этим пользоваться</a></li>
+    <li><p class="shab__t">Шаблон «6&nbsp;раскладок для слайдов с фото»</p><p class="shab__o">Одно фото крупно, галерея 2×2, фото и цитата, лента, до и после, портрет и факт. 8 слайдов, .pptx 53 КБ.</p><span class="shab__kn"><a class="kn kn--glav" href="/razbory/slaydy-s-foto/fayly/6-raskladok-dlya-slaydov-s-foto.pdf" data-dar="pdf">Открыть PDF</a><a class="kn kn--kontur" href="/razbory/slaydy-s-foto/fayly/6-raskladok-dlya-slaydov-s-foto.pptx" download data-dar="pptx">Скачать для PowerPoint</a></span><a class="shab__razbor" href="/razbory/slaydy-s-foto/">Разбор: как этим пользоваться</a></li>
+    <li><p class="shab__t">Скелет доклада: шаблон презентации на 15 слайдов</p><p class="shab__o">На каждой странице слайд и подсказка к нему. PDF 1,6 МБ, .pptx 80 КБ.</p><span class="shab__kn"><a class="kn kn--glav" href="/razbory/prezentaciya-psihologa/fayly/skelet-doklada-15-slaydov.pdf" data-dar="pdf">Открыть PDF</a><a class="kn kn--kontur" href="/razbory/prezentaciya-psihologa/fayly/skelet-doklada-15-slaydov.pptx" download data-dar="pptx">Скачать для PowerPoint</a></span><a class="shab__razbor" href="/razbory/prezentaciya-psihologa/">Разбор: как этим пользоваться</a></li>
+    <li><p class="shab__t">Шаблон слайдов «4&nbsp;схемы вместо абзаца»</p><p class="shab__o">Шаги, круг, «было / стало» и число крупно. 5 слайдов с подсказками, .pptx 45 КБ.</p><span class="shab__kn"><a class="kn kn--glav" href="/razbory/3-oshibki-slaydov/fayly/4-shemy-vmesto-abzaca.pdf" data-dar="pdf">Открыть PDF</a><a class="kn kn--kontur" href="/razbory/3-oshibki-slaydov/fayly/4-shemy-vmesto-abzaca.pptx" download data-dar="pptx">Скачать для PowerPoint</a></span><a class="shab__razbor" href="/razbory/3-oshibki-slaydov/">Разбор: как этим пользоваться</a></li>
+    </ul>
+    <h3>Чек-лист, шпаргалка, памятка и запросы</h3>
+    <ul class="shab-sp">
+    <li><p class="shab__t">Чек-лист перед выступлением</p><p class="shab__o">7 пунктов на одной странице A4. Откроется на телефоне, можно распечатать.</p><span class="shab__kn"><a class="kn kn--glav" href="/razbory/3-oshibki-slaydov/fayly/chek-list-pered-vystupleniem.pdf" data-dar="pdf">Скачать чек-лист (PDF)</a></span><a class="shab__razbor" href="/razbory/3-oshibki-slaydov/">Разбор: как этим пользоваться</a></li>
+    <li><p class="shab__t">Шпаргалка «Правила оформления презентации»</p><p class="shab__o">10 правил на одной странице A4. Картинка 1000×1500 для телефона.</p><span class="shab__kn"><a class="kn kn--glav" href="/razbory/pravila-oformleniya-prezentacii/fayly/shpargalka-pravila-oformleniya-prezentacii.pdf" data-dar="pdf">Скачать шпаргалку (PDF)</a><a class="kn kn--kontur" href="/razbory/pravila-oformleniya-prezentacii/fayly/shpargalka-pravila-oformleniya-prezentacii.jpg" download data-dar="jpg">Сохранить картинку</a></span><a class="shab__razbor" href="/razbory/pravila-oformleniya-prezentacii/">Разбор: как этим пользоваться</a></li>
+    <li><p class="shab__t">Памятка для слушателей: образец A5</p><p class="shab__o">PDF, две стороны A5, 196 КБ. Откроется на телефоне, можно распечатать.</p><span class="shab__kn"><a class="kn kn--glav" href="/razbory/prezentaciya-psihologa/fayly/pamyatka-dlya-zala-a5.pdf" data-dar="pdf">Скачать образец памятки</a></span><a class="shab__razbor" href="/razbory/prezentaciya-psihologa/">Разбор: как этим пользоваться</a></li>
+    <li><p class="shab__t">Два готовых запроса для ChatGPT и Claude</p><p class="shab__o">Текстовый файл, 4 КБ. Откроется на телефоне и на компьютере.</p><span class="shab__kn"><a class="kn kn--glav" href="/razbory/prezentaciya-v-neyroseti/fayly/zaprosy-dlya-prezentacii.txt" download data-dar="txt">Скачать оба запроса</a></span><a class="shab__razbor" href="/razbory/prezentaciya-v-neyroseti/">Разбор: как этим пользоваться</a></li>
+    </ul>
+  </section>
 
   <section class="order" id="zakaz">
     <h2>Не хотите разбираться сами</h2>
